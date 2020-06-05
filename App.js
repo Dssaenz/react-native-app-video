@@ -9,13 +9,12 @@ import {
 } from 'react-native';
 
 import Header from './src/sections/components/header';
-
+import SuggestionsList from './src/videos/containers/suggestionList';
 function App() {
   return (
     <SafeAreaView>
       <Header />
-      <Text>Body</Text>
-      <Text>Footer</Text>
+      <SuggestionsList />
     </SafeAreaView>
   );
 }

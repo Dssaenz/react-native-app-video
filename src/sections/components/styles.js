@@ -1,11 +1,9 @@
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
 
 export const ContainerHeader = styled.View`
-	width: 100%;
-	background-color: '#FF0000';
-	height: 20px;
+  width: 100%;
+  background-color: #ff0000;
+  height: 20px;
 `;
 
-export const HeaderLogo = styled.View`
-	
-`;
+export const HeaderLogo = styled.View``;
