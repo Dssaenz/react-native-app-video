@@ -5,7 +5,7 @@ import Empty from '../components/Empty';
 import VerticalSeparator from '../components/VerticalSeparator';
 import Suggestions from '../components/Seggestions';
 
-class SuggestionsList extends React.Component {
+class CategoriesList extends React.Component {
   keyExtractor = (item) => item.id.toString();
   renderEmpty = () => <Empty text="No hay sugerencias" />;
 
@@ -16,8 +16,9 @@ class SuggestionsList extends React.Component {
   };
   render() {
     return (
-      <SectionList title="recomendados para ti">
+      <SectionList title="Categorias">
         <FlatList
+          horizontal
           keyExtractor={this.keyExtractor}
           data={this.props.list}
           ListEmptyComponent={this.renderEmpty}
@@ -29,4 +30,4 @@ class SuggestionsList extends React.Component {
   }
 }
 
-export default SuggestionsList;
+export default CategoriesList;
