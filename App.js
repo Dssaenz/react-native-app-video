@@ -63,7 +63,6 @@ class App extends React.Component {
       <SafeAreaView>
         <ScrollView>
           <View style={{backgroundColor: '#0b132b'}}>
-            <Header />
             <MoviesList list={listMovies} />
             <SuggestionsList list={listSuggestions} />
             <FeaturedList list={listFeatured} />
