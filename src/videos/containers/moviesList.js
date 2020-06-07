@@ -52,10 +52,10 @@ class MoviesList extends React.Component {
       <SectionList>
         <Carousel
           layout={'stack'}
-          layoutCardOffset={`18`}
+          layoutCardOffset={`20`}
           data={this.props.list}
-          sliderWidth={400}
-          itemWidth={300}
+          sliderWidth={350}
+          itemWidth={320}
           renderItem={this._renderItem}
           onSnapToItem={(index) => this.setState({activeIndex: index})}
         />
