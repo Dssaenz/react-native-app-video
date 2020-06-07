@@ -8,8 +8,16 @@ class Api {
     return data;
   }
 
-  async getCategories() {
-    let url = 'list_movies.json?limit=6';
+  async getFeatured(id) {
+    let url = 'movie_suggestions.json?movie_id=';
+    const data = await fetch(`${BASE_API}${url}${id}`).then((response) =>
+      response.json(),
+    );
+    return data;
+  }
+
+  async getMovies() {
+    let url = 'list_movies.json?limit=5';
     const data = await fetch(`${BASE_API}${url}`).then((response) =>
       response.json(),
     );

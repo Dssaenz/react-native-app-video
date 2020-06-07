@@ -3,20 +3,20 @@ import {FlatList} from 'react-native';
 import SectionList from '../components/SectionList';
 import Empty from '../components/Empty';
 import VerticalSeparator from '../components/VerticalSeparator';
-import Suggestions from '../components/Seggestions';
+import MovieCard from '../components/MovieCard';
 
-class CategoriesList extends React.Component {
+class FeaturedList extends React.Component {
   keyExtractor = (item) => item.id.toString();
   renderEmpty = () => <Empty text="No hay sugerencias" />;
 
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    return <Suggestions {...item} />;
+    return <MovieCard {...item} />;
   };
   render() {
     return (
-      <SectionList title="Categorias">
+      <SectionList title="Destacados">
         <FlatList
           horizontal
           keyExtractor={this.keyExtractor}
@@ -30,4 +30,4 @@ class CategoriesList extends React.Component {
   }
 }
 
-export default CategoriesList;
+export default FeaturedList;

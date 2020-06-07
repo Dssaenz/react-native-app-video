@@ -3,7 +3,7 @@ import {FlatList} from 'react-native';
 import SectionList from '../components/SectionList';
 import Empty from '../components/Empty';
 import VerticalSeparator from '../components/VerticalSeparator';
-import Suggestions from '../components/Seggestions';
+import MovieCard from '../components/MovieCard';
 
 class SuggestionsList extends React.Component {
   keyExtractor = (item) => item.id.toString();
@@ -12,12 +12,13 @@ class SuggestionsList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    return <Suggestions {...item} />;
+    return <MovieCard {...item} />;
   };
   render() {
     return (
-      <SectionList title="recomendados para ti">
+      <SectionList title="Recomendados para ti">
         <FlatList
+          horizontal
           keyExtractor={this.keyExtractor}
           data={this.props.list}
           ListEmptyComponent={this.renderEmpty}

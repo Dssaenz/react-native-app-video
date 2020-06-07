@@ -1,12 +1,8 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Separator} from './styles';
 
 function VerticalSeparator() {
-  return (
-    <View>
-      <Text>-------------------</Text>
-    </View>
-  );
+  return <Separator />;
 }
 
 export default VerticalSeparator;

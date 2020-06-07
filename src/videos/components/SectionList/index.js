@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {ContentList, TitleSection} from './styles';
 
 function SectionList(props) {
   return (
-    <View>
-      <Text>{props.title}</Text>
+    <ContentList>
+      <TitleSection>{props.title}</TitleSection>
       {props.children}
-    </View>
+    </ContentList>
   );
 }
 

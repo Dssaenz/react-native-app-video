@@ -1,24 +1,19 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, ScrollView, View, Text} from 'react-native';
 
 import Header from './src/sections/components/header';
 import SuggestionsList from './src/videos/containers/suggestionList';
-import CategoriesList from './src/videos/containers/categoriesList';
+import MoviesList from './src/videos/containers/moviesList';
+import FeaturedList from './src/videos/containers/featuredList';
 import API from './utils/api';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      listMovies: [],
       listSuggestions: [],
-      listCategories: [],
+      listFeatured: [],
       loading: false,
       error: null,
     };
@@ -31,11 +26,13 @@ class App extends React.Component {
   async fetchData() {
     this.setState({loading: true});
     try {
+      const categories = await API.getMovies();
       const movies = await API.getSuggestions(20);
-      const categories = await API.getCategories();
+      const featured = await API.getFeatured(1);
       this.setState({
+        listMovies: categories.data.movies,
         listSuggestions: movies.data.movies,
-        listCategories: categories.data.movies,
+        listFeatured: featured.data.movies,
         loading: false,
       });
     } catch (error) {
@@ -44,8 +41,19 @@ class App extends React.Component {
     }
   }
   render() {
-    const {listSuggestions, listCategories, error, loading} = this.state;
-    if (loading || !listSuggestions.length || !listCategories.length) {
+    const {
+      listSuggestions,
+      listMovies,
+      listFeatured,
+      error,
+      loading,
+    } = this.state;
+    if (
+      loading ||
+      !listSuggestions.length ||
+      !listMovies.length ||
+      !listFeatured.length
+    ) {
       return <Text>Cargando ...</Text>;
     }
     if (error) {
@@ -53,9 +61,14 @@ class App extends React.Component {
     }
     return (
       <SafeAreaView>
-        <Header />
-        <CategoriesList list={listCategories} />
-        <SuggestionsList list={listSuggestions} />
+        <ScrollView>
+          <View style={{backgroundColor: '#0b132b'}}>
+            <Header />
+            <MoviesList list={listMovies} />
+            <SuggestionsList list={listSuggestions} />
+            <FeaturedList list={listFeatured} />
+          </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
