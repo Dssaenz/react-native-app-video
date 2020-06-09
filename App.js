@@ -1,10 +1,10 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, View, Text} from 'react-native';
-
 import Header from './src/sections/components/header';
 import SuggestionsList from './src/videos/containers/suggestionList';
 import MoviesList from './src/videos/containers/moviesList';
 import FeaturedList from './src/videos/containers/featuredList';
+import Player from './src/player/containers/player';
 import API from './utils/api';
 
 class App extends React.Component {
@@ -63,6 +63,7 @@ class App extends React.Component {
       <SafeAreaView>
         <ScrollView>
           <View style={{backgroundColor: '#0b132b'}}>
+            <Player />
             <MoviesList list={listMovies} />
             <SuggestionsList list={listSuggestions} />
             <FeaturedList list={listFeatured} />
