@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 function Empty(props) {
   return (
     <View>
-      <Text>{props.text}</Text>
+      <Text style={{color: '#fff'}}>{props.text}</Text>
     </View>
   );
 }

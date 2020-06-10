@@ -7,9 +7,20 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 import MovieSection from '../components/MovieSection';
 
+import {connect} from 'react-redux';
+
+import * as moviesAction from '../../redux/actions/moviesAction';
+
 class MoviesList extends React.Component {
   state = {
     activeIndex: 0,
+  };
+
+  componentDidMount = () => {
+    const {listMovies, getMovies} = this.props;
+    if (!listMovies.lenght) {
+      getMovies();
+    }
   };
 
   _renderItem({item, index}) {
@@ -17,17 +28,17 @@ class MoviesList extends React.Component {
   }
 
   keyExtractor = (item) => item.id.toString();
+
   renderEmpty = () => <Empty text="No hay sugerencias" />;
 
   renderSeparator = () => <VerticalSeparator />;
 
   get pagination() {
-    const {list} = this.props;
-    const {activeIndex} = this.state;
+    const {listMovies} = this.props;
     return (
       <Pagination
-        dotsLength={list.length}
-        activeDotIndex={activeIndex}
+        dotsLength={listMovies.length}
+        activeDotIndex={this.state.activeIndex}
         containerStyle={{backgroundColor: 'rgba(0, 0, 0, 0)'}}
         dotStyle={{
           width: 30,
@@ -48,12 +59,13 @@ class MoviesList extends React.Component {
   }
 
   render() {
+    const {listMovies} = this.props;
     return (
       <SectionList>
         <Carousel
           layout={'stack'}
-          layoutCardOffset={`20`}
-          data={this.props.list}
+          layoutCardOffset={'20'}
+          data={listMovies}
           sliderWidth={350}
           itemWidth={320}
           renderItem={this._renderItem}
@@ -65,4 +77,8 @@ class MoviesList extends React.Component {
   }
 }
 
-export default MoviesList;
+const mapStateToProps = (reducers) => {
+  return reducers.moviesReducers;
+};
+
+export default connect(mapStateToProps, moviesAction)(MoviesList);

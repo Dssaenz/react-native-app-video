@@ -5,71 +5,26 @@ import SuggestionsList from './src/videos/containers/suggestionList';
 import MoviesList from './src/videos/containers/moviesList';
 import FeaturedList from './src/videos/containers/featuredList';
 import Player from './src/player/containers/player';
-import API from './utils/api';
+
+// Redux //
+import store from './store';
+import {Provider} from 'react-redux';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      listMovies: [],
-      listSuggestions: [],
-      listFeatured: [],
-      loading: false,
-      error: null,
-    };
-  }
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  async fetchData() {
-    this.setState({loading: true});
-    try {
-      const categories = await API.getMovies();
-      const movies = await API.getSuggestions(20);
-      const featured = await API.getFeatured(1);
-      this.setState({
-        listMovies: categories.data.movies,
-        listSuggestions: movies.data.movies,
-        listFeatured: featured.data.movies,
-        loading: false,
-      });
-    } catch (error) {
-      console.error(error);
-      this.setState({loading: false, error: error});
-    }
-  }
   render() {
-    const {
-      listSuggestions,
-      listMovies,
-      listFeatured,
-      error,
-      loading,
-    } = this.state;
-    if (
-      loading ||
-      !listSuggestions.length ||
-      !listMovies.length ||
-      !listFeatured.length
-    ) {
-      return <Text>Cargando ...</Text>;
-    }
-    if (error) {
-      console.log('Error');
-    }
     return (
-      <SafeAreaView>
-        <ScrollView>
-          <View style={{backgroundColor: '#0b132b'}}>
-            <Player />
-            <MoviesList list={listMovies} />
-            <SuggestionsList list={listSuggestions} />
-            <FeaturedList list={listFeatured} />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <Provider store={store}>
+        <SafeAreaView>
+          <ScrollView>
+            <View style={{backgroundColor: '#0b132b'}}>
+              <Player />
+              <MoviesList />
+              <SuggestionsList />
+              <FeaturedList />
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </Provider>
     );
   }
 }
