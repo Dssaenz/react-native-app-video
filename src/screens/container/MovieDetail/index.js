@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import LayoutMovie from '../../components/LayoutMovie';
-import Player from '../../../player/containers/player';
 import BackButton from '../../../sections/components/BackButton';
 import DetailsMovie from '../../../videos/components/DetailsMovie';
 import {connect} from 'react-redux';
@@ -24,7 +23,6 @@ class MovieDetail extends React.Component {
           )}
         </ViewBack>
         <DetailsMovie {...this.props.list} />
-        <Player />
       </LayoutMovie>
     );
   }

@@ -46,6 +46,7 @@ export const WrapperDetails = styled.View`
 `;
 
 export const RuntimeContent = styled.View``;
+
 export const TitleStrong = styled.Text`
   color: #ffffff;
   font-size: 16px;
@@ -56,6 +57,7 @@ export const LitleText = styled.Text`
   font-size: 15;
 `;
 export const Language = styled.View``;
+
 export const Title = styled.Text`
   color: #ffffff;
   font-size: 16px;
@@ -68,9 +70,21 @@ export const Text = styled.Text`
   color: #ffffff;
   font-size: 15;
 `;
+
+export const Icon = styled.Image`
+  width: 20;
+  height: 20;
+  resize-mode: contain;
+`;
+
 export const Content = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
 
 export const SimpleView = styled.View``;
+
+export const ViewWeb = styled.View`
+  height: 225px;
+  margin-vertical: 6%;
+`;

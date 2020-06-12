@@ -7,13 +7,7 @@ import {
   DescriptionContainer,
   Title,
   Year,
-  Rating,
-  Icon,
-  ViewRating,
 } from './styles';
-
-const tomato = '../../../../resources/tomatoo.png';
-const splash = '../../../../resources/splash.png';
 
 function MovieCard(props) {
   return (
@@ -29,14 +23,6 @@ function MovieCard(props) {
             : props.title}
         </Title>
         <Year>Año: {props.year}</Year>
-        {/* <ViewRating>
-          <Rating>Puntaje: {props.rating}</Rating>
-          {props.rating > 5.0 ? (
-            <Icon source={require(tomato)} />
-          ) : (
-            <Icon source={require(splash)} />
-          )}
-        </ViewRating> */}
       </DescriptionContainer>
     </CardContainer>
   );

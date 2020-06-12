@@ -21,7 +21,7 @@ export const Genre = styled.Text`
 export const MovieImage = styled.Image`
   width: 125;
   height: 175;
-  border-radius: 12;
+  border-radius: 5;
   margin-bottom: 10;
 `;
 
