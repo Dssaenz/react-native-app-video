@@ -1,7 +1,7 @@
 import React from 'react';
 import {ContainerHeader, HeaderLogo} from './styles';
 
-const logo = '../../../resources/Movie_app_03.png';
+const logo = '../../../resources/Movie_app_01.png';
 
 function Header(props) {
   return (

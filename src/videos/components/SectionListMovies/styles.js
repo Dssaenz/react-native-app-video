@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const ContentList = styled.View`
-  margin-left: 5%;
+  padding-horizontal: 4%;
   margin-bottom: 10%;
 `;
 
@@ -10,4 +10,8 @@ export const TitleSection = styled.Text`
   font-size: 22;
   font-weight: bold;
   margin-bottom: 5%;
+`;
+
+export const SectionList = styled.View`
+  align-items: center;
 `;

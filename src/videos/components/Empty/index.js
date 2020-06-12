@@ -1,10 +1,20 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View} from './styles';
+import LottieView from 'lottie-react-native';
+
+const animation = require('../../../../resources/loader.json');
 
 function Empty(props) {
   return (
     <View>
-      <Text style={{color: '#fff'}}>{props.text}</Text>
+      <LottieView
+        style={{
+          width: 130,
+        }}
+        source={animation}
+        autoPlay
+        loop
+      />
     </View>
   );
 }

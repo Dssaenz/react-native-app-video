@@ -8,7 +8,7 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 import MovieSection from '../components/MovieSection';
 
 import {connect} from 'react-redux';
-
+import {ViewLoader} from './styles';
 import * as moviesAction from '../../redux/actions/moviesAction';
 
 class MoviesList extends React.Component {
@@ -29,8 +29,6 @@ class MoviesList extends React.Component {
 
   keyExtractor = (item) => item.id.toString();
 
-  renderEmpty = () => <Empty text="No hay sugerencias" />;
-
   renderSeparator = () => <VerticalSeparator />;
 
   get pagination() {
@@ -50,7 +48,7 @@ class MoviesList extends React.Component {
           width: 30,
           height: 5,
           borderRadius: 5,
-          backgroundColor: '#6E5EFF',
+          backgroundColor: '#37E7CC',
         }}
         inactiveDotOpacity={0.6}
         inactiveDotScale={0.6}
@@ -59,7 +57,14 @@ class MoviesList extends React.Component {
   }
 
   render() {
-    const {listMovies} = this.props;
+    const {listMovies, loading} = this.props;
+    if (loading || !listMovies.length) {
+      return (
+        <ViewLoader>
+          <Empty />
+        </ViewLoader>
+      );
+    }
     return (
       <SectionList>
         <Carousel

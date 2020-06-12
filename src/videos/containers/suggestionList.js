@@ -17,7 +17,7 @@ class SuggestionsList extends React.Component {
 
   keyExtractor = (item) => item.id.toString();
 
-  renderEmpty = () => <Empty text="No hay sugerencias" />;
+  renderEmpty = () => <Empty />;
 
   renderSeparator = () => <VerticalSeparator />;
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import {ContentList, TitleSection} from './styles';
+import {ContentList, TitleSection, SectionList} from './styles';
 
 function SectionListMovies(props) {
   return (
     <ContentList>
       <TitleSection>{props.title}</TitleSection>
-      {props.children}
+      <SectionList>{props.children}</SectionList>
     </ContentList>
   );
 }
