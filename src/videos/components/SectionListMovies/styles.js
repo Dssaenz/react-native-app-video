@@ -1,6 +1,9 @@
 import styled from 'styled-components/native';
 
-export const ContentList = styled.View``;
+export const ContentList = styled.View`
+  margin-left: 5%;
+  margin-bottom: 10%;
+`;
 
 export const TitleSection = styled.Text`
   color: #ffffff;

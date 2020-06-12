@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import SectionList from '../components/SectionList';
+import SectionListMovies from '../components/SectionListMovies';
 import Empty from '../components/Empty';
 import VerticalSeparator from '../components/VerticalSeparator';
 import MovieCard from '../components/MovieCard';
@@ -21,22 +21,24 @@ class FeaturedList extends React.Component {
 
   renderSeparator = () => <VerticalSeparator />;
 
-  renderItem = ({item}) => {
-    return <MovieCard {...item} />;
+  _renderItem = ({item}) => {
+    const {viewFeatured} = this.props;
+    return <MovieCard onPress={() => viewFeatured(item)} {...item} />;
   };
   render() {
     const {listFeatured} = this.props;
     return (
-      <SectionList title="Destacados">
+      <SectionListMovies title="Destacados">
         <FlatList
           horizontal
-          keyExtractor={this.keyExtractor}
           data={listFeatured}
+          renderItem={this._renderItem}
+          keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.renderSeparator}
-          renderItem={this.renderItem}
+          showsHorizontalScrollIndicator={false}
         />
-      </SectionList>
+      </SectionListMovies>
     );
   }
 }

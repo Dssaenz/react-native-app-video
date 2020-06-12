@@ -17,7 +17,7 @@ const splash = '../../../../resources/splash.png';
 
 function MovieCard(props) {
   return (
-    <CardContainer>
+    <CardContainer onPress={props.onPress}>
       <MovieImage source={{uri: props.medium_cover_image}} />
       <GenreContent>
         <Genre>{props.genres[1]}</Genre>
@@ -29,14 +29,14 @@ function MovieCard(props) {
             : props.title}
         </Title>
         <Year>Año: {props.year}</Year>
-        <ViewRating>
+        {/* <ViewRating>
           <Rating>Puntaje: {props.rating}</Rating>
           {props.rating > 5.0 ? (
             <Icon source={require(tomato)} />
           ) : (
             <Icon source={require(splash)} />
           )}
-        </ViewRating>
+        </ViewRating> */}
       </DescriptionContainer>
     </CardContainer>
   );

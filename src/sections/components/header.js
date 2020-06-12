@@ -1,11 +1,13 @@
 import React from 'react';
 import {ContainerHeader, HeaderLogo} from './styles';
 
+const logo = '../../../resources/Movie_app_03.png';
+
 function Header(props) {
   return (
     <ContainerHeader>
-      <HeaderLogo />
-      <HeaderLogo>{props.children}</HeaderLogo>
+      {props.children && <HeaderLogo>{props.children}</HeaderLogo>}
+      <HeaderLogo source={require(logo)} />
     </ContainerHeader>
   );
 }

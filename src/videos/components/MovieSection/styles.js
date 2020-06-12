@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Section = styled.View`
+export const Section = styled.TouchableOpacity`
   width: 100%;
-  height: 150;
+  height: 180;
   background-color: #000;
 `;
 

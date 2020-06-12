@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
-import SectionList from '../components/SectionList';
+import SectionListMovies from '../components/SectionListMovies';
 import Empty from '../components/Empty';
 import VerticalSeparator from '../components/VerticalSeparator';
 import MovieCard from '../components/MovieCard';
@@ -22,22 +22,31 @@ class SuggestionsList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    return <MovieCard {...item} />;
+    const {viewSuggestion} = this.props;
+    return (
+      <MovieCard
+        onPress={() => {
+          viewSuggestion(item);
+        }}
+        {...item}
+      />
+    );
   };
 
   render() {
     const {listSuggestions} = this.props;
     return (
-      <SectionList title="Recomendados para ti">
+      <SectionListMovies title="Recomendados para ti">
         <FlatList
           horizontal
-          keyExtractor={this.keyExtractor}
           data={listSuggestions}
+          renderItem={this.renderItem}
+          keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.renderSeparator}
-          renderItem={this.renderItem}
+          showsHorizontalScrollIndicator={false}
         />
-      </SectionList>
+      </SectionListMovies>
     );
   }
 }

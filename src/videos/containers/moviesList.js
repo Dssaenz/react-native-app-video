@@ -23,9 +23,9 @@ class MoviesList extends React.Component {
     }
   };
 
-  _renderItem({item, index}) {
+  _renderItem = ({item}) => {
     return <MovieSection {...item} />;
-  }
+  };
 
   keyExtractor = (item) => item.id.toString();
 
@@ -50,7 +50,7 @@ class MoviesList extends React.Component {
           width: 30,
           height: 5,
           borderRadius: 5,
-          backgroundColor: '#6fffe9',
+          backgroundColor: '#6E5EFF',
         }}
         inactiveDotOpacity={0.6}
         inactiveDotScale={0.6}
@@ -66,8 +66,8 @@ class MoviesList extends React.Component {
           layout={'stack'}
           layoutCardOffset={'20'}
           data={listMovies}
-          sliderWidth={350}
-          itemWidth={320}
+          sliderWidth={410}
+          itemWidth={410}
           renderItem={this._renderItem}
           onSnapToItem={(index) => this.setState({activeIndex: index})}
         />
