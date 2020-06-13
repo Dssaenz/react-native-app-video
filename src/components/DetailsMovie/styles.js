@@ -14,7 +14,7 @@ export const Wrapper = styled.View`
 `;
 
 export const SectionDetails = styled.View`
-  padding-horizontal: 7%;
+  padding-horizontal: ${(props) => props.theme.padding.paddingXL};
 `;
 
 export const Poster = styled.Image`
@@ -33,42 +33,42 @@ export const WrapperLayout = styled.View`
 `;
 export const TitleName = styled.Text`
   margin-top: -90px;
-  color: #fff;
-  font-size: 24;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.h1};
   font-weight: bold;
 `;
 
 export const WrapperDetails = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin-horizontal: 2%;
+  margin-horizontal: ${(props) => props.theme.margin.marginSmall};
   margin-top: 20px;
 `;
 
 export const RuntimeContent = styled.View``;
 
 export const TitleStrong = styled.Text`
-  color: #ffffff;
-  font-size: 16px;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.h3};
   font-weight: bold;
 `;
 export const LitleText = styled.Text`
-  color: #ffffff;
-  font-size: 15;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.p};
 `;
 export const Language = styled.View``;
 
 export const Title = styled.Text`
-  color: #ffffff;
-  font-size: 16px;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.h3};
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 5px;
 `;
 export const Text = styled.Text`
   margin-right: 4px;
-  color: #ffffff;
-  font-size: 15;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.p};
 `;
 
 export const Icon = styled.Image`

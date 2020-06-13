@@ -1,15 +1,15 @@
 import styled from 'styled-components/native';
 
 export const ContentList = styled.View`
-  padding-horizontal: 4%;
+  padding-horizontal: ${(props) => props.theme.padding.paddingMedium};
   margin-bottom: 10%;
 `;
 
 export const TitleSection = styled.Text`
-  color: #ffffff;
-  font-size: 22;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.h2};
   font-weight: bold;
-  margin-bottom: 5%;
+  margin-bottom: ${(props) => props.theme.margin.marginLarge};
 `;
 
 export const SectionList = styled.View`

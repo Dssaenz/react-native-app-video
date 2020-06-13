@@ -1,13 +1,15 @@
 import React from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {FlatList} from 'react-native';
 
+// COMPONENTS //
 import {
-  SectionListMovies,
-  Empty,
-  VerticalSeparator,
+  Loader,
   MovieCard,
+  VerticalSeparator,
+  SectionListMovies,
 } from '../../components';
 
+// REDUX //
 import {connect} from 'react-redux';
 import * as suggestionsActions from '../../redux/actions/suggestionsActions';
 
@@ -21,7 +23,7 @@ class SuggestionsList extends React.Component {
 
   keyExtractor = (item) => item.id.toString();
 
-  renderEmpty = () => <Empty />;
+  renderEmpty = () => <Loader />;
 
   renderSeparator = () => <VerticalSeparator />;
 

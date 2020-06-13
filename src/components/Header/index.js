@@ -1,14 +1,15 @@
 import React from 'react';
-import {ContainerHeader, HeaderLogo} from './styles';
+import {ContainerHeader, HeaderLogo, View} from './styles';
 
 const logo = '../../../resources/Movie_app_01.png';
 
-function Header(props) {
+function Header() {
   return (
-    <ContainerHeader>
-      {props.children && <HeaderLogo>{props.children}</HeaderLogo>}
-      <HeaderLogo source={require(logo)} />
-    </ContainerHeader>
+    <View>
+      <ContainerHeader>
+        <HeaderLogo source={require(logo)} />
+      </ContainerHeader>
+    </View>
   );
 }
 

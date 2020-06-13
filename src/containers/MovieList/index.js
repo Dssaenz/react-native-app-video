@@ -1,16 +1,22 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  SectionList,
-  Empty,
-  VerticalSeparator,
-  MovieSection,
-} from '../../components';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 
-import {connect} from 'react-redux';
-import {ViewLoader} from './styles';
-import * as moviesAction from '../../redux/actions/moviesAction';
+// COMPONENTS //
+import {
+  Loader,
+  SectionList,
+  MovieSection,
+  VerticalSeparator,
+} from '../../components';
 
+// STYLES //
+import theme from '../../themes';
+import {ViewLoader} from './styles';
+
+// REDUX //
+import {connect} from 'react-redux';
+import * as moviesAction from '../../redux/actions/moviesAction';
 class MoviesList extends React.Component {
   state = {
     activeIndex: 0,
@@ -37,18 +43,18 @@ class MoviesList extends React.Component {
       <Pagination
         dotsLength={listMovies.length}
         activeDotIndex={this.state.activeIndex}
-        containerStyle={{backgroundColor: 'rgba(0, 0, 0, 0)'}}
+        containerStyle={{backgroundColor: theme.color.rgbaDark}}
         dotStyle={{
           width: 30,
           height: 5,
           borderRadius: 5,
-          backgroundColor: 'rgba(255, 255, 255, 0.92)',
+          backgroundColor: theme.color.rgbaTransparent,
         }}
         inactiveDotStyle={{
           width: 30,
           height: 5,
           borderRadius: 5,
-          backgroundColor: '#37E7CC',
+          backgroundColor: theme.color.whiteBlue,
         }}
         inactiveDotOpacity={0.6}
         inactiveDotScale={0.6}
@@ -61,7 +67,7 @@ class MoviesList extends React.Component {
     if (loading || !listMovies.length) {
       return (
         <ViewLoader>
-          <Empty />
+          <Loader />
         </ViewLoader>
       );
     }

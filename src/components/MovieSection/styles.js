@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Section = styled.TouchableOpacity`
   width: 100%;
   height: 180;
-  background-color: #000;
+  background-color: ${(props) => props.theme.color.dark};
 `;
 
 export const Image = styled.ImageBackground`
@@ -11,19 +11,19 @@ export const Image = styled.ImageBackground`
   height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  padding-vertical: 2%;
-  padding-horizontal: 5%;
+  padding-vertical: ${(props) => props.theme.padding.paddingSmall};
+  padding-horizontal: ${(props) => props.theme.padding.paddingLarge};
 `;
 
 export const Text = styled.Text`
-  color: #fff;
-  font-size: 11;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.pd};
   margin-bottom: 3;
 `;
 
 export const TextTitle = styled.Text`
-  color: #fff;
-  font-size: 24;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.h1};
   margin-bottom: 3;
   font-weight: bold;
 `;
@@ -33,7 +33,7 @@ export const ContentDescription = styled.View`
 `;
 
 export const TextDetails = styled.Text`
-  color: #fff;
-  font-size: 11;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.pd};
   margin-bottom: 10;
 `;

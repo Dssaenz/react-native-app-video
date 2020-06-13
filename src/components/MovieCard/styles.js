@@ -8,14 +8,14 @@ export const MovieContainer = styled.View`
 
 export const GenreContent = styled.View`
   position: absolute;
-  background-color: #000000;
-  padding-vertical: 3%;
-  padding-horizontal: 4%;
+  background-color: ${(props) => props.theme.color.dark};
+  padding-vertical: ${(props) => props.theme.padding.paddingStandard};
+  padding-horizontal: ${(props) => props.theme.padding.paddingMedium};
   border-bottom-right-radius: 10;
 `;
 
 export const Genre = styled.Text`
-  color: #ffffff;
+  color: ${(props) => props.theme.color.white};
 `;
 
 export const MovieImage = styled.Image`
@@ -30,14 +30,14 @@ export const DescriptionContainer = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #ffffff;
-  font-size: 15px;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.p};
   font-weight: bold;
 `;
 
 export const Year = styled.Text`
-  color: #ffffff;
-  font-size: 15;
+  color: ${(props) => props.theme.color.white};
+  font-size: ${(props) => props.theme.text.p};
   margin-vertical: 10;
 `;
 
@@ -46,7 +46,7 @@ export const ViewRating = styled.View`
 `;
 
 export const Rating = styled.Text`
-  color: #ffffff;
+  color: ${(props) => props.theme.color.white};
   font-size: 15;
   padding-right: 10;
 `;

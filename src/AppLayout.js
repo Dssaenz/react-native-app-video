@@ -1,13 +1,22 @@
 import React from 'react';
+import {View, StyleSheet} from 'react-native';
 
+// COMPONENTS //
+import {LayoutMovie, Header} from './components';
+
+// CONTAINERS //
 import {
   SuggestionsList,
   MoviesList,
   FeaturedList,
   MovieDetail,
 } from './containers';
+
+// STYLES //
+import theme from './themes';
+
+// REDUX //
 import {connect} from 'react-redux';
-import {LayoutMovie, Header} from './components';
 
 class AppLayout extends React.Component {
   render() {
@@ -23,15 +32,25 @@ class AppLayout extends React.Component {
       return <MovieDetail list={this.props.featuredReducers.movieFeatured} />;
     }
     return (
-      <LayoutMovie>
+      <View style={styles.container}>
         <Header />
-        <MoviesList />
-        <SuggestionsList />
-        <FeaturedList />
-      </LayoutMovie>
+        <LayoutMovie>
+          <MoviesList />
+          <SuggestionsList />
+          <FeaturedList />
+        </LayoutMovie>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: theme.color.darkBlue,
+  },
+});
 
 const mapStateToProps = ({featuredReducers, suggestionsReducers}) => {
   return {featuredReducers, suggestionsReducers};

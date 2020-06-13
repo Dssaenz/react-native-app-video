@@ -3,7 +3,7 @@ import LayoutMovie from './LayoutMovie';
 import BackButton from './BackButton';
 import Header from './Header';
 import DetailsMovie from './DetailsMovie';
-import Empty from './Empty';
+import Loader from './Loader';
 import MovieCard from './MovieCard';
 import MovieSection from './MovieSection';
 import SectionList from './SectionList';
@@ -16,7 +16,7 @@ export {
   BackButton,
   DetailsMovie,
   Header,
-  Empty,
+  Loader,
   MovieCard,
   MovieSection,
   SectionList,

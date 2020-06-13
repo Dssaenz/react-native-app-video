@@ -21,7 +21,7 @@ import {
   SimpleView,
   ViewWeb,
 } from './styles';
-
+import theme from '../../themes';
 const tomato = '../../../resources/tomatoo.png';
 const splash = '../../../resources/splash.png';
 
@@ -103,7 +103,7 @@ function DetailsMovie(props) {
           source={{
             html: makeHTML(props.yt_trailer_code),
           }}
-          style={{backgroundColor: '#111d40'}}
+          style={{backgroundColor: theme.color.darkBlue}}
         />
       </ViewWeb>
     </Container>

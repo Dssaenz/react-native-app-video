@@ -1,13 +1,15 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 
+// COMPONENTS //
 import {
-  SectionListMovies,
-  Empty,
-  VerticalSeparator,
+  Loader,
   MovieCard,
+  VerticalSeparator,
+  SectionListMovies,
 } from '../../components';
 
+// REDUX //
 import {connect} from 'react-redux';
 import * as featuredActions from '../../redux/actions/featuredActions';
 
@@ -21,7 +23,7 @@ class FeaturedList extends React.Component {
 
   keyExtractor = (item) => item.id.toString();
 
-  renderEmpty = () => <Empty />;
+  renderEmpty = () => <Loader />;
 
   renderSeparator = () => <VerticalSeparator />;
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import store from './store';
 import AppLayout from './src/AppLayout';
-import {ThemeProvider} from 'styled-components/native';
+
+// Themes //
 import theme from './src/themes';
+import {ThemeProvider} from 'styled-components/native';
 
 // Redux //
 import {Provider} from 'react-redux';
