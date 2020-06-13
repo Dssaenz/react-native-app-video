@@ -1,23 +1,24 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import store from './store';
+import AppLayout from './src/AppLayout';
 
-import Header from './src/sections/components/header';
+// Themes //
+import theme from './src/themes';
+import {ThemeProvider} from 'styled-components/native';
 
-function App() {
-  return (
-    <SafeAreaView>
-      <Header />
-      <Text>Body</Text>
-      <Text>Footer</Text>
-    </SafeAreaView>
-  );
+// Redux //
+import {Provider} from 'react-redux';
+
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <AppLayout />
+        </ThemeProvider>
+      </Provider>
+    );
+  }
 }
 
 export default App;
