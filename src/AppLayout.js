@@ -1,11 +1,13 @@
 import React from 'react';
-import Header from './sections/components/header';
-import SuggestionsList from './videos/containers/suggestionList';
-import MoviesList from './videos/containers/moviesList';
-import FeaturedList from './videos/containers/featuredList';
-import MovieDetail from './screens/container/MovieDetail';
+
+import {
+  SuggestionsList,
+  MoviesList,
+  FeaturedList,
+  MovieDetail,
+} from './containers';
 import {connect} from 'react-redux';
-import LayoutMovie from './screens/components/LayoutMovie';
+import {LayoutMovie, Header} from './components';
 
 class AppLayout extends React.Component {
   render() {

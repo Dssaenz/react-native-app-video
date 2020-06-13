@@ -1,12 +1,11 @@
 /* eslint-disable no-shadow */
 import React from 'react';
-import LayoutMovie from '../../components/LayoutMovie';
-import BackButton from '../../../sections/components/BackButton';
-import DetailsMovie from '../../../videos/components/DetailsMovie';
+import {LayoutMovie, BackButton, DetailsMovie} from '../../components';
 import {connect} from 'react-redux';
-import * as suggestionsActions from '../../../redux/actions/suggestionsActions';
-import * as featuredActions from '../../../redux/actions/featuredActions';
+import * as suggestionsActions from '../../redux/actions/suggestionsActions';
+import * as featuredActions from '../../redux/actions/featuredActions';
 import {ViewBack} from './styles';
+
 const {backListSugguest: backSuggest} = suggestionsActions;
 const {backListFeatured: backFeatured} = featuredActions;
 

@@ -1,9 +1,13 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import SectionListMovies from '../components/SectionListMovies';
-import Empty from '../components/Empty';
-import VerticalSeparator from '../components/VerticalSeparator';
-import MovieCard from '../components/MovieCard';
+
+import {
+  SectionListMovies,
+  Empty,
+  VerticalSeparator,
+  MovieCard,
+} from '../../components';
+
 import {connect} from 'react-redux';
 import * as featuredActions from '../../redux/actions/featuredActions';
 

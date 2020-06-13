@@ -1,11 +1,11 @@
 import React from 'react';
-import SectionList from '../components/SectionList';
-import Empty from '../components/Empty';
-import VerticalSeparator from '../components/VerticalSeparator';
-
+import {
+  SectionList,
+  Empty,
+  VerticalSeparator,
+  MovieSection,
+} from '../../components';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
-
-import MovieSection from '../components/MovieSection';
 
 import {connect} from 'react-redux';
 import {ViewLoader} from './styles';

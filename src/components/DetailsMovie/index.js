@@ -22,8 +22,8 @@ import {
   ViewWeb,
 } from './styles';
 
-const tomato = '../../../../resources/tomatoo.png';
-const splash = '../../../../resources/splash.png';
+const tomato = '../../../resources/tomatoo.png';
+const splash = '../../../resources/splash.png';
 
 const makeHTML = (id) => {
   return `
