@@ -22,7 +22,7 @@ function MovieCard(props) {
             ? `${props.title.substring(0, 12)} ...`
             : props.title}
         </Title>
-        <Year>Año: {props.year}</Year>
+        <Year>Year: {props.year}</Year>
       </DescriptionContainer>
     </CardContainer>
   );

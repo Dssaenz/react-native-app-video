@@ -62,19 +62,19 @@ function DetailsMovie(props) {
             <TitleName>{props.title}</TitleName>
             <WrapperDetails>
               <RuntimeContent>
-                <TitleStrong>Duracion</TitleStrong>
+                <TitleStrong>Time</TitleStrong>
                 <LitleText>{props.runtime} min</LitleText>
               </RuntimeContent>
               <Language>
-                <TitleStrong>Lenguaje</TitleStrong>
+                <TitleStrong>Language</TitleStrong>
                 <LitleText>{props.language}</LitleText>
               </Language>
             </WrapperDetails>
           </WrapperLayout>
         </Wrapper>
-        <Title>Sinopsis</Title>
+        <Title>Synopsis</Title>
         <Text>{props.synopsis}</Text>
-        <Title>Generos</Title>
+        <Title>Genders</Title>
         <Text>{`${props.genres}`}</Text>
         <Content>
           <SimpleView>
@@ -93,7 +93,7 @@ function DetailsMovie(props) {
             <Text>{props.year}</Text>
           </SimpleView>
           <SimpleView>
-            <Title>audience</Title>
+            <Title>Audience</Title>
             <Text>{props.mpa_rating}</Text>
           </SimpleView>
         </Content>

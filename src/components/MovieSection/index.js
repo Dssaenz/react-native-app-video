@@ -13,7 +13,7 @@ function MovieSection(props) {
   return (
     <Section>
       <Image source={{uri: props.background_image}}>
-        <Text>Reproduce ahora!</Text>
+        <Text>Play now!</Text>
         <TextTitle>{props.title}</TextTitle>
         <ContentDescription>
           <TextDetails>

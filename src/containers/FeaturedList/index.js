@@ -34,7 +34,7 @@ class FeaturedList extends React.Component {
   render() {
     const {listFeatured} = this.props;
     return (
-      <SectionListMovies title="Destacados">
+      <SectionListMovies title="Featured">
         <FlatList
           horizontal
           data={listFeatured}

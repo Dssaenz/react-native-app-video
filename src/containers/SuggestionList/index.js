@@ -42,7 +42,7 @@ class SuggestionsList extends React.Component {
   render() {
     const {listSuggestions} = this.props;
     return (
-      <SectionListMovies title="Recomendados para ti">
+      <SectionListMovies title="Recommended for you">
         <FlatList
           horizontal
           data={listSuggestions}
