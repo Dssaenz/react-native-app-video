@@ -4,7 +4,7 @@ import {PrincipalContainer} from './styles';
 
 function LayoutMovie(props) {
   return (
-    <ScrollView>
+    <ScrollView refreshControl={props.refreshControl}>
       <PrincipalContainer>{props.children}</PrincipalContainer>
     </ScrollView>
   );
