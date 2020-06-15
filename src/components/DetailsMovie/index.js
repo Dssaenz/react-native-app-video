@@ -22,6 +22,7 @@ import {
   ViewWeb,
 } from './styles';
 import theme from '../../themes';
+
 const tomato = '../../../resources/tomatoo.png';
 const splash = '../../../resources/splash.png';
 

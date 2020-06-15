@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, RefreshControl} from 'react-native';
 
 // COMPONENTS //
 import {LayoutMovie, Header} from './components';
@@ -17,8 +17,28 @@ import theme from './themes';
 
 // REDUX //
 import {connect} from 'react-redux';
+import * as suggestionsActions from './redux/actions/suggestionsActions';
+import * as featuredActions from './redux/actions/featuredActions';
+import * as moviesAction from './redux/actions/moviesAction';
+
+const {getSuggestions: suggestion} = suggestionsActions;
+const {getFeatured: featured} = featuredActions;
+const {getMovies: movie} = moviesAction;
 
 class AppLayout extends React.Component {
+  state = {
+    refreshing: false,
+  };
+
+  onRefresh = async () => {
+    this.setState({refreshing: true});
+    const {suggestion, featured, movie} = this.props;
+    await suggestion();
+    await featured();
+    await movie();
+    this.setState({refreshing: false});
+  };
+
   render() {
     if (this.props.suggestionsReducers.movieSuggestion) {
       return (
@@ -34,7 +54,14 @@ class AppLayout extends React.Component {
     return (
       <View style={styles.container}>
         <Header />
-        <LayoutMovie>
+        <LayoutMovie
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+              tintColor="#FFF"
+            />
+          }>
           <MoviesList />
           <SuggestionsList />
           <FeaturedList />
@@ -56,4 +83,10 @@ const mapStateToProps = ({featuredReducers, suggestionsReducers}) => {
   return {featuredReducers, suggestionsReducers};
 };
 
-export default connect(mapStateToProps)(AppLayout);
+const mapDispatchToProps = {
+  suggestion,
+  featured,
+  movie,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);

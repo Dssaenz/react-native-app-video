@@ -3,7 +3,7 @@ const theme = {
     dark: '#000000',
     white: '#FFFFFF',
     darkBlue: '#111d40',
-    whiteBlue: '##37E7CC',
+    whiteBlue: '#37E7CC',
     rgbaTransparent: 'rgba(255, 255, 255, 0.92)',
     rgbaDark: 'rgba(0, 0, 0, 0)',
   },
