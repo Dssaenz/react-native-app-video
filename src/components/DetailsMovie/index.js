@@ -1,4 +1,5 @@
 import React from 'react';
+import {SafeAreaView} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {
   Container,
@@ -32,9 +33,9 @@ const makeHTML = (id) => {
     .video {
       position: relative;
       padding-bottom: 56.25%;
+      background-color: #111d40; 
     }
     iframe {
-      position: absolute;
       top: 0;
       right: 0;
       left: 0;
@@ -42,6 +43,7 @@ const makeHTML = (id) => {
       width: 90%;
       height: 100%;
       margin: auto;
+      position: absolute;
     }
   </style>
   <div class="video">
@@ -53,7 +55,9 @@ const makeHTML = (id) => {
 function DetailsMovie(props) {
   return (
     <Container>
-      <SectionFond source={{uri: props.background_image}} />
+      <SafeAreaView>
+        <SectionFond source={{uri: props.background_image}} />
+      </SafeAreaView>
       <SectionDetails>
         <Wrapper>
           <ContentPoster>

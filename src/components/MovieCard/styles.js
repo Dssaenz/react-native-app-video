@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
-export const CardContainer = styled.TouchableOpacity``;
+export const CardContainer = styled.TouchableOpacity`
+  padding-horizontal: 15;
+`;
 
 export const MovieContainer = styled.View`
   position: relative;
@@ -8,13 +10,16 @@ export const MovieContainer = styled.View`
 
 export const GenreContent = styled.View`
   position: absolute;
+  left: 15;
   background-color: ${(props) => props.theme.color.dark};
   padding-vertical: ${(props) => props.theme.padding.paddingStandard};
-  padding-horizontal: ${(props) => props.theme.padding.paddingMedium};
+  padding-horizontal: ${(props) => props.theme.padding.paddingXL};
   border-bottom-right-radius: 10;
+  border-top-left-radius: 5;
 `;
 
 export const Genre = styled.Text`
+  text-align: center;
   color: ${(props) => props.theme.color.white};
 `;
 

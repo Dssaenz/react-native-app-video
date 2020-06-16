@@ -4,7 +4,7 @@ export const PressBack = styled.TouchableOpacity`
   position: absolute;
   top: 10;
   right: 10;
-  z-index: 1;
+  z-index: 100;
 `;
 
 export const Icon = styled.Image`
