@@ -49,7 +49,7 @@ class SuggestionsList extends React.Component {
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          ItemSeparatorComponent={this.renderSeparator}
+          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>

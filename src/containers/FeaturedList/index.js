@@ -41,7 +41,7 @@ class FeaturedList extends React.Component {
           renderItem={this._renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          ItemSeparatorComponent={this.renderSeparator}
+          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>
