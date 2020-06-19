@@ -12,7 +12,7 @@ export const getFeatured = () => async (dispatch) => {
     type: FEATURED_LOADING,
   });
   try {
-    const featured = await API.fetchFeatured(1);
+    const featured = await API.fetchFeatured(3);
     dispatch({
       type: FEATURED_LIST,
       payload: featured.data.movies,

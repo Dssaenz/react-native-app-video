@@ -9,6 +9,7 @@ import MovieSection from './MovieSection';
 import SectionList from './SectionList';
 import SectionListMovies from './SectionListMovies';
 import VerticalSeparator from './VerticalSeparator';
+import Button from './Button';
 
 export {
   LayoutVideo,
@@ -22,4 +23,5 @@ export {
   SectionList,
   SectionListMovies,
   VerticalSeparator,
+  Button,
 };

@@ -49,18 +49,18 @@ export const WrapperDetails = styled.View`
 export const RuntimeContent = styled.View``;
 
 export const TitleStrong = styled.Text`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.titleColor};
   font-size: ${(props) => props.theme.text.h3};
   font-weight: bold;
 `;
 export const LitleText = styled.Text`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.litleTitleColor};
   font-size: ${(props) => props.theme.text.p};
 `;
 export const Language = styled.View``;
 
 export const Title = styled.Text`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.titleColor};
   font-size: ${(props) => props.theme.text.h3};
   font-weight: bold;
   margin-top: 20px;
@@ -68,14 +68,14 @@ export const Title = styled.Text`
 `;
 export const Text = styled.Text`
   margin-right: 4px;
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.litleTitleColor};
   font-size: ${(props) => props.theme.text.p};
 `;
 
 export const Icon = styled.Image`
   width: 20;
   height: 20;
-  resize-mode: contain;
+  resize-mode: stretch;
 `;
 
 export const Content = styled.View`

@@ -32,8 +32,7 @@ const makeHTML = (id) => {
   <style>
     .video {
       position: relative;
-      padding-bottom: 56.25%;
-      background-color: #111d40; 
+      padding-bottom: 56.25%; 
     }
     iframe {
       top: 0;
@@ -99,7 +98,7 @@ function DetailsMovie(props) {
           </SimpleView>
           <SimpleView>
             <Title>Audience</Title>
-            <Text>{props.mpa_rating}</Text>
+            <Text>{props.mpa_rating || 'R'}</Text>
           </SimpleView>
         </Content>
       </SectionDetails>
@@ -108,7 +107,11 @@ function DetailsMovie(props) {
           source={{
             html: makeHTML(props.yt_trailer_code),
           }}
-          style={{backgroundColor: theme.color.darkBlue}}
+          style={
+            props.colorTheme
+              ? {backgroundColor: theme.color.darkBlue}
+              : {backgroundColor: theme.color.snow}
+          }
         />
       </ViewWeb>
     </Container>
