@@ -75,7 +75,7 @@ export const Text = styled.Text`
 export const Icon = styled.Image`
   width: 20;
   height: 20;
-  resize-mode: contain;
+  resize-mode: stretch;
 `;
 
 export const Content = styled.View`

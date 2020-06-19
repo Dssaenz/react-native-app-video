@@ -48,7 +48,7 @@ class AppLayout extends React.Component {
   render() {
     if (this.props.suggestionsReducers.movieSuggestion) {
       return (
-        <ThemeProvider theme={this.state.colorTheme ? darkTheme : lightTheme}>
+        <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
             isActive
             changetheme={this.changetheme}
@@ -59,7 +59,7 @@ class AppLayout extends React.Component {
     }
     if (this.props.featuredReducers.movieFeatured) {
       return (
-        <ThemeProvider theme={this.state.colorTheme ? darkTheme : lightTheme}>
+        <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
             changetheme={this.changetheme}
             list={this.props.featuredReducers.movieFeatured}
@@ -68,7 +68,7 @@ class AppLayout extends React.Component {
       );
     }
     return (
-      <ThemeProvider theme={this.state.colorTheme ? darkTheme : lightTheme}>
+      <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
         <Container>
           <Header />
           <LayoutMovie

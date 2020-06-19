@@ -98,7 +98,7 @@ function DetailsMovie(props) {
           </SimpleView>
           <SimpleView>
             <Title>Audience</Title>
-            <Text>{props.mpa_rating}</Text>
+            <Text>{props.mpa_rating || 'R'}</Text>
           </SimpleView>
         </Content>
       </SectionDetails>
