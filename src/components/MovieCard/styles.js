@@ -11,7 +11,7 @@ export const MovieContainer = styled.View`
 export const GenreContent = styled.View`
   position: absolute;
   left: 15;
-  background-color: ${(props) => props.theme.color.dark};
+  background-color: ${(props) => props.theme.genreColor};
   padding-vertical: ${(props) => props.theme.padding.paddingStandard};
   padding-horizontal: ${(props) => props.theme.padding.paddingXL};
   border-bottom-right-radius: 10;
@@ -35,13 +35,13 @@ export const DescriptionContainer = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.litleTitleColor};
   font-size: ${(props) => props.theme.text.p};
   font-weight: bold;
 `;
 
 export const Year = styled.Text`
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.litleTitleColor};
   font-size: ${(props) => props.theme.text.p};
   margin-vertical: 10;
 `;
