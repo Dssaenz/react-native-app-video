@@ -4,7 +4,7 @@ export const View = styled.SafeAreaView``;
 
 export const ContainerHeader = styled.View`
   width: 100%;
-  background-color: ${(props) => props.theme.color.darkBlue};
+  background-color: ${(props) => props.theme.headerColor};
   height: 65px;
   align-items: center;
   justify-content: center;

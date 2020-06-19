@@ -4,10 +4,10 @@ import React from 'react';
 import {Animated} from 'react-native';
 
 // COMPONENTS //
-import {LayoutMovie, BackButton, DetailsMovie} from '../../components';
+import {LayoutMovie, BackButton, DetailsMovie, Button} from '../../components';
 
 // STYLES //
-import {ViewBack} from './styles';
+import {ViewBack, ContainerLayout} from './styles';
 
 // REDUX //
 import {connect} from 'react-redux';
@@ -37,16 +37,19 @@ class MovieDetail extends React.Component {
           flex: 1,
           opacity: this.state.opacity,
         }}>
-        <LayoutMovie>
-          <ViewBack>
-            {this.props.isActive ? (
-              <BackButton onPress={() => backSuggest()} />
-            ) : (
-              <BackButton onPress={() => backFeatured()} />
-            )}
-          </ViewBack>
-          <DetailsMovie {...this.props.list} />
-        </LayoutMovie>
+        <ContainerLayout>
+          <LayoutMovie>
+            <ViewBack>
+              {this.props.isActive ? (
+                <BackButton onPress={() => backSuggest()} />
+              ) : (
+                <BackButton onPress={() => backFeatured()} />
+              )}
+            </ViewBack>
+            <DetailsMovie {...this.props.list} />
+          </LayoutMovie>
+          <Button onPress={() => this.props.changetheme()} />
+        </ContainerLayout>
       </Animated.View>
     );
   }

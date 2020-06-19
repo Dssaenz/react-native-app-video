@@ -12,7 +12,7 @@ export const getSuggestions = () => async (dispatch) => {
     type: SUGGESTIONS_LOADING,
   });
   try {
-    const suggestions = await API.fetchSuggestions(2);
+    const suggestions = await API.fetchSuggestions(4);
     dispatch({
       type: SUGGESTIONS_LIST,
       payload: suggestions.data.movies,
