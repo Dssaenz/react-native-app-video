@@ -4,6 +4,7 @@ import {
   SUGGESTIONS_ERROR,
   SELECTED_SUGGESTION,
   SET_SUGGESTIONS,
+  VIDEO_SUGESTION,
 } from '../types/suggestionsTypes';
 
 const INITIAL_STATE = {
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   loading: false,
   error: null,
   movieSuggestion: null,
+  videoSuggestion: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -37,6 +39,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         movieSuggestion: action.payload,
+      };
+    case VIDEO_SUGESTION:
+      return {
+        ...state,
+        videoSuggestion: action.payload,
       };
     case SET_SUGGESTIONS:
       return {

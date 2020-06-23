@@ -28,11 +28,12 @@ class SuggestionsList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    const {viewSuggestion} = this.props;
+    const {viewSuggestion, viewSuggestionVideo} = this.props;
     return (
       <MovieCard
         onPress={() => {
-          viewSuggestion(item);
+          viewSuggestion(item.id);
+          viewSuggestionVideo(item.id);
         }}
         {...item}
       />
@@ -49,7 +50,6 @@ class SuggestionsList extends React.Component {
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>

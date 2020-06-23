@@ -11,13 +11,13 @@ import {
 
 // REDUX //
 import {connect} from 'react-redux';
-import * as featuredActions from '../../redux/actions/featuredActions';
+import * as UpcomingActions from '../../redux/actions/UpcomingActions';
 
-class FeaturedList extends React.Component {
+class UpcomingList extends React.Component {
   componentDidMount = () => {
-    const {listFeatured, getFeatured} = this.props;
-    if (!listFeatured.length) {
-      getFeatured();
+    const {getUpcoming, listUpcoming} = this.props;
+    if (!listUpcoming.length) {
+      getUpcoming();
     }
   };
 
@@ -27,21 +27,28 @@ class FeaturedList extends React.Component {
 
   renderSeparator = () => <VerticalSeparator />;
 
-  _renderItem = ({item}) => {
-    const {viewFeatured} = this.props;
-    return <MovieCard onPress={() => viewFeatured(item.id)} {...item} />;
-  };
-  render() {
-    const {listFeatured} = this.props;
+  renderItem = ({item}) => {
+    const {viewUpcoming} = this.props;
     return (
-      <SectionListMovies title="Featured">
+      <MovieCard
+        onPress={() => {
+          viewUpcoming(item.id);
+        }}
+        {...item}
+      />
+    );
+  };
+
+  render() {
+    const {listUpcoming} = this.props;
+    return (
+      <SectionListMovies title="Recommended for you">
         <FlatList
           horizontal
-          data={listFeatured}
-          renderItem={this._renderItem}
+          data={listUpcoming}
+          renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>
@@ -50,7 +57,7 @@ class FeaturedList extends React.Component {
 }
 
 const mapStateToProps = (reducers) => {
-  return reducers.featuredReducers;
+  return reducers.upcomingReducers;
 };
 
-export default connect(mapStateToProps, featuredActions)(FeaturedList);
+export default connect(mapStateToProps, UpcomingActions)(UpcomingList);

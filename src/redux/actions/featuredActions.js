@@ -12,10 +12,10 @@ export const getFeatured = () => async (dispatch) => {
     type: FEATURED_LOADING,
   });
   try {
-    const featured = await API.fetchFeatured(3);
+    const featured = await API.fetchFeatured();
     dispatch({
       type: FEATURED_LIST,
-      payload: featured.data.movies,
+      payload: featured.results,
     });
   } catch (error) {
     dispatch({
@@ -25,11 +25,22 @@ export const getFeatured = () => async (dispatch) => {
   }
 };
 
-export const viewFeatured = (item) => (dispatch) => {
+export const viewFeatured = (item) => async (dispatch) => {
   dispatch({
-    type: FEATURED_SELECTED,
-    payload: item,
+    type: FEATURED_LOADING,
   });
+  try {
+    const detailFeatured = await API.getDetailFeatured(item);
+    dispatch({
+      type: FEATURED_SELECTED,
+      payload: detailFeatured,
+    });
+  } catch (error) {
+    dispatch({
+      type: FEATURED_ERROR,
+      payload: error,
+    });
+  }
 };
 
 export const backListFeatured = () => (dispatch) => {

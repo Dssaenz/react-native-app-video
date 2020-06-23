@@ -9,7 +9,7 @@ import {LayoutMovie, Header, Button} from './components';
 // CONTAINERS //
 import {
   SuggestionsList,
-  MoviesList,
+  UpcomingList,
   FeaturedList,
   MovieDetail,
 } from './containers';
@@ -18,11 +18,11 @@ import {
 import {connect} from 'react-redux';
 import * as suggestionsActions from './redux/actions/suggestionsActions';
 import * as featuredActions from './redux/actions/featuredActions';
-import * as moviesAction from './redux/actions/moviesAction';
+import * as UpcomingActions from './redux/actions/UpcomingActions';
 
 const {getSuggestions: suggestion} = suggestionsActions;
 const {getFeatured: featured} = featuredActions;
-const {getMovies: movie} = moviesAction;
+const {getUpcoming: upcoming} = UpcomingActions;
 
 class AppLayout extends React.Component {
   state = {
@@ -38,50 +38,67 @@ class AppLayout extends React.Component {
 
   onRefresh = async () => {
     this.setState({refreshing: true});
-    const {suggestion, featured, movie} = this.props;
+    const {suggestion, featured, upcoming} = this.props;
     await suggestion();
     await featured();
-    await movie();
+    await upcoming();
     this.setState({refreshing: false});
   };
 
   render() {
-    if (this.props.suggestionsReducers.movieSuggestion) {
+    const {
+      suggestionsReducers,
+      featuredReducers,
+      upcomingReducers,
+    } = this.props;
+    const {colorTheme, refreshing} = this.state;
+
+    if (suggestionsReducers.movieSuggestion) {
       return (
-        <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
+        <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
             isActive
             changetheme={this.changetheme}
-            list={this.props.suggestionsReducers.movieSuggestion}
+            list={suggestionsReducers.movieSuggestion}
           />
         </ThemeProvider>
       );
     }
-    if (this.props.featuredReducers.movieFeatured) {
+    if (featuredReducers.movieFeatured) {
       return (
-        <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
+        <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
             changetheme={this.changetheme}
-            list={this.props.featuredReducers.movieFeatured}
+            list={featuredReducers.movieFeatured}
+          />
+        </ThemeProvider>
+      );
+    }
+    if (upcomingReducers.movieUpcoming) {
+      return (
+        <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
+          <MovieDetail
+            changetheme={this.changetheme}
+            list={upcomingReducers.movieUpcoming}
           />
         </ThemeProvider>
       );
     }
     return (
-      <ThemeProvider theme={this.state.colorTheme ? lightTheme : darkTheme}>
+      <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
         <Container>
           <Header />
           <LayoutMovie
             refreshControl={
               <RefreshControl
-                refreshing={this.state.refreshing}
+                refreshing={refreshing}
                 onRefresh={this.onRefresh}
                 tintColor="#FFF"
               />
             }>
-            <MoviesList />
             <SuggestionsList />
             <FeaturedList />
+            <UpcomingList />
           </LayoutMovie>
           <Button onPress={() => this.changetheme()} />
         </Container>
@@ -96,14 +113,18 @@ const Container = styled.View`
   background-color: ${(props) => props.theme.backgroundColor};
 `;
 
-const mapStateToProps = ({featuredReducers, suggestionsReducers}) => {
-  return {featuredReducers, suggestionsReducers};
+const mapStateToProps = ({
+  featuredReducers,
+  suggestionsReducers,
+  upcomingReducers,
+}) => {
+  return {featuredReducers, suggestionsReducers, upcomingReducers};
 };
 
 const mapDispatchToProps = {
   suggestion,
   featured,
-  movie,
+  upcoming,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);

@@ -8,6 +8,7 @@ export const ContainerHeader = styled.View`
   height: 65px;
   align-items: center;
   justify-content: center;
+  elevation: 10;
 `;
 
 export const HeaderLogo = styled.Image`

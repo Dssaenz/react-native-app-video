@@ -13,9 +13,11 @@ import {ViewBack, ContainerLayout} from './styles';
 import {connect} from 'react-redux';
 import * as suggestionsActions from '../../redux/actions/suggestionsActions';
 import * as featuredActions from '../../redux/actions/featuredActions';
+import * as UpcomingActions from '../../redux/actions/UpcomingActions';
 
 const {backListSugguest: backSuggest} = suggestionsActions;
 const {backListFeatured: backFeatured} = featuredActions;
+const {backListUpcoming: backUpcoming} = UpcomingActions;
 
 class MovieDetail extends React.Component {
   state = {
@@ -29,8 +31,14 @@ class MovieDetail extends React.Component {
     }).start();
   };
 
+  backList = () => {
+    const {backSuggest, backFeatured, backUpcoming} = this.props;
+    backSuggest();
+    backFeatured();
+    backUpcoming();
+  };
+
   render() {
-    const {backSuggest, backFeatured} = this.props;
     return (
       <Animated.View
         style={{
@@ -40,13 +48,9 @@ class MovieDetail extends React.Component {
         <ContainerLayout>
           <LayoutMovie>
             <ViewBack>
-              {this.props.isActive ? (
-                <BackButton onPress={() => backSuggest()} />
-              ) : (
-                <BackButton onPress={() => backFeatured()} />
-              )}
+              <BackButton onPress={() => this.backList()} />
             </ViewBack>
-            <DetailsMovie {...this.props.list} />
+            <DetailsMovie key={this.props.id} {...this.props.list} />
           </LayoutMovie>
           <Button onPress={() => this.props.changetheme()} />
         </ContainerLayout>
@@ -55,13 +59,18 @@ class MovieDetail extends React.Component {
   }
 }
 
-const mapStateToProps = ({moviesReducers, suggestionsReducers}) => {
-  return {moviesReducers, suggestionsReducers};
+const mapStateToProps = ({
+  moviesReducers,
+  suggestionsReducers,
+  upcomingReducers,
+}) => {
+  return {moviesReducers, suggestionsReducers, upcomingReducers};
 };
 
 const mapDispatchToProps = {
   backSuggest,
   backFeatured,
+  backUpcoming,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

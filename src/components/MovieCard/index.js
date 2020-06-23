@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   CardContainer,
-  GenreContent,
-  Genre,
   MovieImage,
   DescriptionContainer,
   Title,
@@ -10,19 +8,17 @@ import {
 } from './styles';
 
 function MovieCard(props) {
+  const image = props.poster_path;
   return (
     <CardContainer onPress={props.onPress}>
-      <MovieImage source={{uri: props.medium_cover_image}} />
-      <GenreContent>
-        <Genre>{props.genres[1]}</Genre>
-      </GenreContent>
+      <MovieImage source={{uri: `https://image.tmdb.org/t/p/w300/${image}`}} />
       <DescriptionContainer>
         <Title>
           {props.title.length > 12
             ? `${props.title.substring(0, 12)} ...`
             : props.title}
         </Title>
-        <Year>Year: {props.year}</Year>
+        <Year>Year: {props.release_date}</Year>
       </DescriptionContainer>
     </CardContainer>
   );
