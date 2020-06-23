@@ -5,10 +5,12 @@ import {
   SELECTED_SUGGESTION,
   SET_SUGGESTIONS,
   VIDEO_SUGESTION,
+  LENGUAGE_SUGGESTION,
 } from '../types/suggestionsTypes';
 
 const INITIAL_STATE = {
   listSuggestions: [],
+  type: 'EN',
   loading: false,
   error: null,
   movieSuggestion: null,
@@ -22,6 +24,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         listSuggestions: action.payload,
         loading: false,
+        type: 'ES',
         error: '',
       };
     case SUGGESTIONS_LOADING:
@@ -49,6 +52,14 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         movieSuggestion: null,
+      };
+    case LENGUAGE_SUGGESTION:
+      return {
+        ...state,
+        listSuggestions: action.payload,
+        loading: false,
+        type: 'EN',
+        error: '',
       };
     default:
       return state;

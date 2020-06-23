@@ -28,12 +28,15 @@ class SuggestionsList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    const {viewSuggestion, viewSuggestionVideo} = this.props;
+    const {viewSuggestion, viewSuggestionVideo, type} = this.props;
     return (
       <MovieCard
         onPress={() => {
-          viewSuggestion(item.id);
-          viewSuggestionVideo(item.id);
+          if (type === 'EN') {
+            viewSuggestion(item.id, 'en-US');
+          } else if (type === 'ES') {
+            viewSuggestion(item.id, 'es-ES');
+          }
         }}
         {...item}
       />

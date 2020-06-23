@@ -3,21 +3,18 @@ const API_KEY = 'api_key=6d8cac20bc40cf9e644422c0f30fd8c2';
 
 class Api {
   // Suggestion fetch //
-  async fetchSuggestions() {
+  async fetchSuggestions(lenguage = 'en-US') {
     let url = 'top_rated?';
-    let lenguage = 'language=en-US';
     let page = 'page=1';
     const data = await fetch(
-      `${BASE_API}${url}${API_KEY}&${lenguage}&${page}`,
+      `${BASE_API}${url}${API_KEY}&language=${lenguage}&${page}`,
     ).then((response) => response.json());
     return data;
   }
 
-  async getDetailSuggestions(id) {
-    let lenguage = 'language=en-US';
-    let page = 'page=1';
+  async getDetailSuggestions(id, lenguage = 'en-US') {
     const data = await fetch(
-      `${BASE_API}${id}?${API_KEY}&${lenguage}&${page}`,
+      `${BASE_API}${id}?${API_KEY}&language=${lenguage}`,
     ).then((response) => response.json());
     return data;
   }
@@ -31,6 +28,12 @@ class Api {
     ).then((response) => response.json());
     return data;
   }
+
+
+
+
+
+
 
   // Featured Fetch //
   async fetchFeatured() {

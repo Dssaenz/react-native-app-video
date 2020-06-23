@@ -21,7 +21,13 @@ export const PressBack = styled.TouchableOpacity`
 `;
 
 export const Icon = styled.Image`
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  resize-mode: stretch;
+`;
+
+export const SubIcon = styled.Image`
+  width: 30px;
+  height: 30px;
   resize-mode: stretch;
 `;

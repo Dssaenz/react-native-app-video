@@ -23,6 +23,7 @@ import * as UpcomingActions from './redux/actions/UpcomingActions';
 const {getSuggestions: suggestion} = suggestionsActions;
 const {getFeatured: featured} = featuredActions;
 const {getUpcoming: upcoming} = UpcomingActions;
+const {setLenguage: newLenguege} = suggestionsActions;
 
 class AppLayout extends React.Component {
   state = {
@@ -45,6 +46,16 @@ class AppLayout extends React.Component {
     this.setState({refreshing: false});
   };
 
+  setLenguegeItem = (type) => {
+    const {newLenguege, suggestion} = this.props;
+    if (type === 'EN') {
+      suggestion('es-ES');
+      console.log(type, 'el tipo 1');
+    } else if (type === 'ES') {
+      newLenguege('en-US');
+      console.log(type, 'el tipo 2');
+    }
+  };
   render() {
     const {
       suggestionsReducers,
@@ -57,7 +68,6 @@ class AppLayout extends React.Component {
       return (
         <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
-            isActive
             changetheme={this.changetheme}
             list={suggestionsReducers.movieSuggestion}
           />
@@ -100,7 +110,12 @@ class AppLayout extends React.Component {
             <FeaturedList />
             <UpcomingList />
           </LayoutMovie>
-          <Button onPress={() => this.changetheme()} />
+          <Button
+            changeLanguage={() =>
+              this.setLenguegeItem(suggestionsReducers.type)
+            }
+            changetheme={() => this.changetheme()}
+          />
         </Container>
       </ThemeProvider>
     );
@@ -125,6 +140,7 @@ const mapDispatchToProps = {
   suggestion,
   featured,
   upcoming,
+  newLenguege,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);
