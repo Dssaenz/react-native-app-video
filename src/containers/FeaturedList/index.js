@@ -28,20 +28,30 @@ class FeaturedList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   _renderItem = ({item}) => {
-    const {viewFeatured} = this.props;
-    return <MovieCard onPress={() => viewFeatured(item.id)} {...item} />;
+    const {viewFeatured, type} = this.props;
+    return (
+      <MovieCard
+        onPress={() => {
+          if (type === 'EN') {
+            viewFeatured(item.id, 'en-US');
+          } else if (type === 'ES') {
+            viewFeatured(item.id, 'es-ES');
+          }
+        }}
+        {...item}
+      />
+    );
   };
   render() {
-    const {listFeatured} = this.props;
+    const {listFeatured, type} = this.props;
     return (
-      <SectionListMovies title="Featured">
+      <SectionListMovies title={type === 'EN' ? 'Featured' : 'Destacadas'}>
         <FlatList
           horizontal
           data={listFeatured}
           renderItem={this._renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>

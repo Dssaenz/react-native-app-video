@@ -18,6 +18,7 @@ import * as UpcomingActions from '../../redux/actions/UpcomingActions';
 const {backListSugguest: backSuggest} = suggestionsActions;
 const {viewSuggestion: suggestion} = suggestionsActions;
 const {backListFeatured: backFeatured} = featuredActions;
+const {viewFeatured: featured} = featuredActions;
 const {backListUpcoming: backUpcoming} = UpcomingActions;
 
 class MovieDetail extends React.Component {
@@ -39,7 +40,7 @@ class MovieDetail extends React.Component {
     backUpcoming();
   };
 
-  onChangeLenguege = (id) => {
+  handleSuggestionsLenguage = (id) => {
     const {suggestionsReducers, suggestion} = this.props;
     if (suggestionsReducers.type === 'EN') {
       suggestion(id, 'es-ES');
@@ -48,8 +49,22 @@ class MovieDetail extends React.Component {
     }
   };
 
+  handleFeaturedLenguage = (id) => {
+    const {featuredReducers, featured} = this.props;
+    if (featuredReducers.type === 'EN') {
+      featured(id, 'es-ES');
+    } else if (featuredReducers.type === 'ES') {
+      featured(id, 'en-US');
+    }
+  };
+
+  onChangeLenguege = (id) => {
+    this.handleSuggestionsLenguage(id);
+    this.handleFeaturedLenguage(id);
+  };
+
   render() {
-    const {suggestionsReducers, list} = this.props;
+    const {list} = this.props;
     return (
       <Animated.View
         style={{
@@ -74,11 +89,11 @@ class MovieDetail extends React.Component {
 }
 
 const mapStateToProps = ({
-  moviesReducers,
-  suggestionsReducers,
+  featuredReducers,
   upcomingReducers,
+  suggestionsReducers,
 }) => {
-  return {moviesReducers, suggestionsReducers, upcomingReducers};
+  return {featuredReducers, suggestionsReducers, upcomingReducers};
 };
 
 const mapDispatchToProps = {
@@ -86,6 +101,7 @@ const mapDispatchToProps = {
   backFeatured,
   backUpcoming,
   suggestion,
+  featured,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

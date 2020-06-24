@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {
   CardContainer,
   MovieImage,
@@ -18,10 +19,17 @@ function MovieCard(props) {
             ? `${props.title.substring(0, 12)} ...`
             : props.title}
         </Title>
-        <Year>Year: {props.release_date}</Year>
+        <Year>
+          {props.suggestionsReducers.type === 'EN' ? 'Year: ' : 'Año: '}
+          {props.release_date}
+        </Year>
       </DescriptionContainer>
     </CardContainer>
   );
 }
 
-export default MovieCard;
+const mapStateToProps = ({suggestionsReducers}) => {
+  return {suggestionsReducers};
+};
+
+export default connect(mapStateToProps, null)(MovieCard);
