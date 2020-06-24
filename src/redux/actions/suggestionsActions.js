@@ -75,7 +75,6 @@ export const setLenguage = (lenguage) => async (dispatch) => {
   });
   try {
     const newLenguage = await API.fetchSuggestions(lenguage);
-    console.log(newLenguage, 'x2');
     dispatch({
       type: LENGUAGE_SUGGESTION,
       payload: newLenguage.results,

@@ -29,6 +29,10 @@ class AppLayout extends React.Component {
   state = {
     colortheme: false,
   };
+  componentDidMount = () => {
+    const {newLenguege, suggestion} = this.props;
+    suggestion('es-ES');
+  };
 
   changetheme = () => {
     const {colorTheme} = this.state;
@@ -50,10 +54,8 @@ class AppLayout extends React.Component {
     const {newLenguege, suggestion} = this.props;
     if (type === 'EN') {
       suggestion('es-ES');
-      console.log(type, 'el tipo 1');
     } else if (type === 'ES') {
       newLenguege('en-US');
-      console.log(type, 'el tipo 2');
     }
   };
   render() {
