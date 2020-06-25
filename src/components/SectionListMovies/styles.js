@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const ContentList = styled.View`
-  margin-bottom: ${(props) => props.theme.margin.marginXL};
+  margin-top: ${(props) => props.theme.margin.marginXL};
 `;
 
 export const TitleSection = styled.Text`
