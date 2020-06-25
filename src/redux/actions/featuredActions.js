@@ -14,7 +14,7 @@ export const getFeatured = (lenguage) => async (dispatch) => {
   });
   try {
     const featured = await API.fetchFeatured(lenguage);
-    console.log(lenguage, 'xD');
+    console.log(featured, 'featured');
     dispatch({
       type: FEATURED_LIST,
       payload: featured.results,

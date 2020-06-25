@@ -28,11 +28,15 @@ class UpcomingList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    const {viewUpcoming} = this.props;
+    const {viewUpcoming, type} = this.props;
     return (
       <MovieCard
         onPress={() => {
-          viewUpcoming(item.id);
+          if (type === 'EN') {
+            viewUpcoming(item.id, 'en-US');
+          } else if (type === 'ES') {
+            viewUpcoming(item.id, 'es-ES');
+          }
         }}
         {...item}
       />
@@ -40,9 +44,9 @@ class UpcomingList extends React.Component {
   };
 
   render() {
-    const {listUpcoming} = this.props;
+    const {listUpcoming, type} = this.props;
     return (
-      <SectionListMovies title="Recommended for you">
+      <SectionListMovies title={type === 'EN' ? 'Coming soon' : 'Próximamente'}>
         <FlatList
           horizontal
           data={listUpcoming}

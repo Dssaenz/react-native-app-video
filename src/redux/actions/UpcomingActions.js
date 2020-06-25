@@ -4,15 +4,17 @@ import {
   UPCOMING_ERROR,
   SELECTED_UPCOMING,
   SET_UPCOMING,
+  LENGUAGE_UPCOMING,
 } from '../types/UpcomingTypes';
 import API from '../../../utils/api';
 
-export const getUpcoming = () => async (dispatch) => {
+export const getUpcoming = (lenguage) => async (dispatch) => {
   dispatch({
     type: UPCOMING_LOADING,
   });
   try {
-    const upcomings = await API.fetchUpcoming();
+    const upcomings = await API.fetchUpcoming(lenguage);
+    console.log(upcomings, 'upcoming');
     dispatch({
       type: UPCOMING_LIST,
       payload: upcomings.results,
@@ -25,12 +27,12 @@ export const getUpcoming = () => async (dispatch) => {
   }
 };
 
-export const viewUpcoming = (item) => async (dispatch) => {
+export const viewUpcoming = (item, lenguage) => async (dispatch) => {
   dispatch({
     type: UPCOMING_LOADING,
   });
   try {
-    const detailUpcoming = await API.getDetailUpcoming(item);
+    const detailUpcoming = await API.getDetailUpcoming(item, lenguage);
     dispatch({
       type: SELECTED_UPCOMING,
       payload: detailUpcoming,
@@ -47,4 +49,22 @@ export const backListUpcoming = () => (dispatch) => {
   dispatch({
     type: SET_UPCOMING,
   });
+};
+
+export const setLenguage = (lenguage) => async (dispatch) => {
+  dispatch({
+    type: UPCOMING_LOADING,
+  });
+  try {
+    const newLenguage = await API.fetchUpcoming(lenguage);
+    dispatch({
+      type: LENGUAGE_UPCOMING,
+      payload: newLenguage.results,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPCOMING_ERROR,
+      payload: error,
+    });
+  }
 };

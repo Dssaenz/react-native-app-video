@@ -25,15 +25,17 @@ const {getFeatured: featured} = featuredActions;
 const {getUpcoming: upcoming} = UpcomingActions;
 const {setLenguage: newLenguegeSuggestion} = suggestionsActions;
 const {setLenguage: newLenguegeFeatured} = featuredActions;
+const {setLenguage: newLenguegeUpcoming} = UpcomingActions;
 
 class AppLayout extends React.Component {
   state = {
     colortheme: false,
   };
-  componentDidMount = () => {
-    const {suggestion, featured} = this.props;
-    suggestion('es-ES');
-    featured('es-ES');
+  componentDidMount = async () => {
+    const {suggestion, featured, upcoming} = this.props;
+    await suggestion('es-ES');
+    await featured('es-ES');
+    await upcoming('es-ES');
   };
 
   changetheme = () => {
@@ -48,7 +50,7 @@ class AppLayout extends React.Component {
     const {suggestion, featured, upcoming} = this.props;
     await suggestion('es-ES');
     await featured('es-ES');
-    await upcoming();
+    await upcoming('es-ES');
     this.setState({refreshing: false});
   };
 
@@ -65,17 +67,29 @@ class AppLayout extends React.Component {
     const {newLenguegeFeatured, featured} = this.props;
     if (type === 'EN') {
       featured('es-ES');
-      console.log(type, 'tpe 1');
     } else if (type === 'ES') {
       newLenguegeFeatured('en-US');
-      console.log(type, 'tpe 2');
+    }
+  };
+
+  handleUpcomingLenguege = (type) => {
+    const {newLenguegeUpcoming, upcoming} = this.props;
+    if (type === 'EN') {
+      upcoming('es-ES');
+    } else if (type === 'ES') {
+      newLenguegeUpcoming('en-US');
     }
   };
 
   changeLenguage = () => {
-    const {suggestionsReducers, featuredReducers} = this.props;
+    const {
+      suggestionsReducers,
+      featuredReducers,
+      upcomingReducers,
+    } = this.props;
     this.handleSuggestionLenguage(suggestionsReducers.type);
     this.handleFeaturedLenguege(featuredReducers.type);
+    this.handleUpcomingLenguege(upcomingReducers.type);
   };
 
   render() {
@@ -87,7 +101,6 @@ class AppLayout extends React.Component {
     const {colorTheme, refreshing} = this.state;
 
     if (suggestionsReducers.movieSuggestion) {
-      console.log(suggestionsReducers.movieSuggestion, 'la pelicula 1');
       return (
         <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
@@ -98,7 +111,6 @@ class AppLayout extends React.Component {
       );
     }
     if (featuredReducers.movieFeatured) {
-      console.log(featuredReducers.movieFeatured, 'la pelicula 2');
       return (
         <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
           <MovieDetail
@@ -164,6 +176,7 @@ const mapDispatchToProps = {
   upcoming,
   newLenguegeSuggestion,
   newLenguegeFeatured,
+  newLenguegeUpcoming,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout);

@@ -4,11 +4,13 @@ import {
   UPCOMING_ERROR,
   SELECTED_UPCOMING,
   SET_UPCOMING,
+  LENGUAGE_UPCOMING,
 } from '../types/UpcomingTypes';
 
 const INITIAL_STATE = {
   listUpcoming: [],
   loading: false,
+  type: 'EN',
   error: null,
   movieUpcoming: null,
 };
@@ -19,6 +21,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         listUpcoming: action.payload,
+        type: 'ES',
         loading: false,
         error: '',
       };
@@ -42,6 +45,14 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         movieUpcoming: null,
+      };
+    case LENGUAGE_UPCOMING:
+      return {
+        ...state,
+        listUpcoming: action.payload,
+        loading: false,
+        type: 'EN',
+        error: '',
       };
     default:
       return state;

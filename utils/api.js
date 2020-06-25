@@ -47,21 +47,18 @@ class Api {
   }
 
   // Upcoming Fetch //
-  async fetchUpcoming() {
+  async fetchUpcoming(lenguage) {
     let url = 'upcoming?';
-    let lenguage = 'language=en-US';
     let page = 'page=1';
     const data = await fetch(
-      `${BASE_API}${url}${API_KEY}&${lenguage}&${page}`,
+      `${BASE_API}${url}${API_KEY}&language=${lenguage}&${page}`,
     ).then((response) => response.json());
     return data;
   }
 
-  async getDetailUpcoming(id) {
-    let lenguage = 'language=en-US';
-    let page = 'page=1';
+  async getDetailUpcoming(id, lenguage = 'en-US') {
     const data = await fetch(
-      `${BASE_API}${id}?${API_KEY}&${lenguage}&${page}`,
+      `${BASE_API}${id}?${API_KEY}&language=${lenguage}`,
     ).then((response) => response.json());
     return data;
   }

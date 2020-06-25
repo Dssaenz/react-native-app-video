@@ -14,7 +14,6 @@ import {
   RuntimeContent,
   TitleStrong,
   LitleText,
-  Language,
   Title,
   Text,
   Icon,
@@ -72,29 +71,27 @@ function DetailsMovie(props) {
             <TitleName>{props.title}</TitleName>
             <WrapperDetails>
               <RuntimeContent>
-                <TitleStrong>Time</TitleStrong>
+                <TitleStrong>Duración / Time</TitleStrong>
                 <LitleText>{props.runtime || 0} min</LitleText>
               </RuntimeContent>
-              <Language>
-                <TitleStrong>Language</TitleStrong>
-                <LitleText>{props.original_language}</LitleText>
-              </Language>
             </WrapperDetails>
           </WrapperLayout>
         </Wrapper>
-        <Title>Synopsis</Title>
+        <Title>Sinopsis / Synopsis</Title>
         <Text>{props.overview}</Text>
-        {props.genres && (
-          <SimpleView>
-            <Title>Genres</Title>
-            {props.genres.map((item) => (
-              <Text>{item.name}</Text>
-            ))}
-          </SimpleView>
-        )}
+        <Content>
+          {props.genres && (
+            <SimpleView>
+              <Title>Generos / Genres</Title>
+              {props.genres.map((item) => (
+                <Text>{item.name}</Text>
+              ))}
+            </SimpleView>
+          )}
+        </Content>
         <Content>
           <SimpleView>
-            <Title>Rating</Title>
+            <Title>Puntiación / Rating</Title>
             <Text>
               {props.vote_average}{' '}
               {props.vote_average > 6.0 ? (
@@ -104,21 +101,34 @@ function DetailsMovie(props) {
               )}
             </Text>
           </SimpleView>
+        </Content>
+        <Content>
           <SimpleView>
-            <Title>Year</Title>
-            <Text>{props.release_date}</Text>
-          </SimpleView>
-          <SimpleView>
-            <Title>Audience</Title>
+            <Title>Audiencia / Audience</Title>
             <Text>{props.mpa_rating || 'R'}</Text>
           </SimpleView>
         </Content>
-        {props.production_companies && (
+        <Content>
           <SimpleView>
-            <Title>Production</Title>
-            <Text>{props.production_companies[0].name}</Text>
+            <Title>Idioma / Language</Title>
+            <Text>{props.original_language}</Text>
           </SimpleView>
-        )}
+        </Content>
+        <Content>
+          {props.production_companies.length !== 0 && (
+            <SimpleView>
+              <Title>Productora / Production</Title>
+              <Text>{props.production_companies[0].name}</Text>
+            </SimpleView>
+          )}
+        </Content>
+        <Content>
+          <SimpleView>
+            <Title>Año / Year</Title>
+            <Text>{props.release_date}</Text>
+          </SimpleView>
+        </Content>
+        <Content />
       </SectionDetails>
       <ViewWeb>
         <WebView

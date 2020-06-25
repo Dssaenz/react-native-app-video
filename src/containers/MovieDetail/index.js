@@ -20,6 +20,7 @@ const {viewSuggestion: suggestion} = suggestionsActions;
 const {backListFeatured: backFeatured} = featuredActions;
 const {viewFeatured: featured} = featuredActions;
 const {backListUpcoming: backUpcoming} = UpcomingActions;
+const {viewUpcoming: upcoming} = UpcomingActions;
 
 class MovieDetail extends React.Component {
   state = {
@@ -58,9 +59,19 @@ class MovieDetail extends React.Component {
     }
   };
 
+  handleUpcomingLenguage = (id) => {
+    const {upcomingReducers, upcoming} = this.props;
+    if (upcomingReducers.type === 'EN') {
+      upcoming(id, 'es-ES');
+    } else if (upcomingReducers.type === 'ES') {
+      upcoming(id, 'en-US');
+    }
+  };
+
   onChangeLenguege = (id) => {
     this.handleSuggestionsLenguage(id);
     this.handleFeaturedLenguage(id);
+    this.handleUpcomingLenguage(id);
   };
 
   render() {
@@ -102,6 +113,7 @@ const mapDispatchToProps = {
   backUpcoming,
   suggestion,
   featured,
+  upcoming,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
