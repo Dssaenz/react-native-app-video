@@ -29,10 +29,6 @@ const {setLenguage: newLenguegeSuggestion} = suggestionsActions;
 const {setLenguage: newLenguegeFeatured} = featuredActions;
 const {setLenguage: newLenguegeUpcoming} = UpcomingActions;
 
-const ButtonHead = () => {
-  const {logout} = useContext(AuthContext);
-  return <Button title={'Logout'} onPress={() => logout()} />;
-};
 class AppLayout extends React.Component {
   state = {
     colortheme: false,
@@ -140,7 +136,6 @@ class AppLayout extends React.Component {
       <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
         <Container>
           <Header />
-          <ButtonHead />
           <LayoutMovie
             refreshControl={
               <RefreshControl

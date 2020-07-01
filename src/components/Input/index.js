@@ -1,9 +1,14 @@
 import React from 'react';
-import {TextInput} from 'react-native';
+import {InputText} from './styles';
 
 function Input({labelValue, placeholderText, ...rest}) {
   return (
-    <TextInput value={labelValue} placeholder={placeholderText} {...rest} />
+    <InputText
+      value={labelValue}
+      placeholderTextColor="#90949e"
+      placeholder={placeholderText}
+      {...rest}
+    />
   );
 }
 

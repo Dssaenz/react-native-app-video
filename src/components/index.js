@@ -1,7 +1,9 @@
 import SectionListMovies from './SectionListMovies';
 import VerticalSeparator from './VerticalSeparator';
 import IndicatorLoading from './IndicatorLoading';
+import ModalContainer from './ModalContainer';
 import ButtonOptions from './ButtonOptions';
+import RoundedButton from './RoundedButton';
 import MovieSection from './MovieSection';
 import DetailsMovie from './DetailsMovie';
 import LayoutVideo from './LayoutVideo';
@@ -19,7 +21,9 @@ export {
   SectionListMovies,
   VerticalSeparator,
   IndicatorLoading,
+  ModalContainer,
   ButtonOptions,
+  RoundedButton,
   DetailsMovie,
   MovieSection,
   LayoutVideo,
