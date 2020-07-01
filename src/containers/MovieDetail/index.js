@@ -4,7 +4,12 @@ import React from 'react';
 import {Animated} from 'react-native';
 
 // COMPONENTS //
-import {LayoutMovie, BackButton, DetailsMovie, Button} from '../../components';
+import {
+  LayoutMovie,
+  BackButton,
+  DetailsMovie,
+  ButtonOptions,
+} from '../../components';
 
 // STYLES //
 import {ViewBack, ContainerLayout} from './styles';
@@ -89,7 +94,7 @@ class MovieDetail extends React.Component {
             </ViewBack>
             <DetailsMovie key={this.props.id} {...this.props.list} />
           </LayoutMovie>
-          <Button
+          <ButtonOptions
             changetheme={() => this.props.changetheme()}
             changeLanguage={() => this.onChangeLenguege(list.id)}
           />

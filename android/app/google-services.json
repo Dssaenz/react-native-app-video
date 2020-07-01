@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "811721080519",
+    "firebase_url": "https://reactnativeappvideo.firebaseio.com",
+    "project_id": "reactnativeappvideo",
+    "storage_bucket": "reactnativeappvideo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811721080519:android:cf0472e1d4aa4b9df748e2",
+        "android_client_info": {
+          "package_name": "com.reactnativeappvideo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811721080519-16iaht8argubt1lj43eu4h8oo8c559i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3UN-HrfYzoKBbduvgHS0UfmdRhpQaYBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811721080519-16iaht8argubt1lj43eu4h8oo8c559i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

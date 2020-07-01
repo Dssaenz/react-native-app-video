@@ -3,5 +3,13 @@ import MovieDetail from './MovieDetail';
 import UpcomingList from './UpcomingList';
 import Player from './Player';
 import SuggestionsList from './SuggestionList';
+import AppLayout from './AppLayout';
 
-export {FeaturedList, MovieDetail, UpcomingList, Player, SuggestionsList};
+export {
+  FeaturedList,
+  MovieDetail,
+  UpcomingList,
+  Player,
+  SuggestionsList,
+  AppLayout,
+};

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {RefreshControl} from 'react-native';
 import styled, {ThemeProvider} from 'styled-components';
-import {darkTheme, lightTheme} from '../themeColors';
+import {darkTheme, lightTheme} from '../../../themeColors';
+
+import {AuthContext} from '../../navigator/AuthProvider';
 
 // COMPONENTS //
-import {LayoutMovie, Header, Button} from './components';
+import {LayoutMovie, Header, ButtonOptions, Button} from '../../components';
 
 // CONTAINERS //
 import {
@@ -12,13 +14,13 @@ import {
   UpcomingList,
   FeaturedList,
   MovieDetail,
-} from './containers';
+} from '../index';
 
 // REDUX //
 import {connect} from 'react-redux';
-import * as suggestionsActions from './redux/actions/suggestionsActions';
-import * as featuredActions from './redux/actions/featuredActions';
-import * as UpcomingActions from './redux/actions/UpcomingActions';
+import * as suggestionsActions from '../../redux/actions/suggestionsActions';
+import * as featuredActions from '../../redux/actions/featuredActions';
+import * as UpcomingActions from '../../redux/actions/UpcomingActions';
 
 const {getSuggestions: suggestion} = suggestionsActions;
 const {getFeatured: featured} = featuredActions;
@@ -27,6 +29,10 @@ const {setLenguage: newLenguegeSuggestion} = suggestionsActions;
 const {setLenguage: newLenguegeFeatured} = featuredActions;
 const {setLenguage: newLenguegeUpcoming} = UpcomingActions;
 
+const ButtonHead = () => {
+  const {logout} = useContext(AuthContext);
+  return <Button title={'Logout'} onPress={() => logout()} />;
+};
 class AppLayout extends React.Component {
   state = {
     colortheme: false,
@@ -134,6 +140,7 @@ class AppLayout extends React.Component {
       <ThemeProvider theme={colorTheme ? lightTheme : darkTheme}>
         <Container>
           <Header />
+          <ButtonHead />
           <LayoutMovie
             refreshControl={
               <RefreshControl
@@ -146,7 +153,7 @@ class AppLayout extends React.Component {
             <FeaturedList />
             <UpcomingList />
           </LayoutMovie>
-          <Button
+          <ButtonOptions
             changeLanguage={() => this.changeLenguage()}
             changetheme={() => this.changetheme()}
           />
