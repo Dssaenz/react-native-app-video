@@ -23,27 +23,15 @@
 - Run 'react-native run-android'
 - Use a phone simulator or physical device
 
-Login:
+Login and Register:
 
-<img src="resources/Gifs/Login.gif" width="400">
+<img src="resources/Gifs/Login.gif" width="400"> <img src="resources/Gifs/Register.gif" width="400">
 
-Register:
+Home movies and Dark, light theme:
 
-<img src="resources/Gifs/Register.gif" width="400">
+<img src="resources/Gifs/Home.gif" width="400"> <img src="resources/Gifs/Dark.gif" width="400">
 
-Home movies:
+Lenguage and Detail movie
 
-<img src="resources/Gifs/Home.gif" width="400">
-
-Dark and light theme:
-
-<img src="resources/Gifs/Dark.gif" width="400">
-
-Lenguage:
-
-<img src="resources/Gifs/Lenguage.gif" width="400">
-
-Detail movie:
-
-<img src="resources/Gifs/Detail.gif" width="400">
+<img src="resources/Gifs/Lenguage.gif" width="400"> <img src="resources/Gifs/Detail.gif" width="400">
 
