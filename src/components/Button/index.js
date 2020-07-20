@@ -1,13 +1,11 @@
 import React from 'react';
-import {PressBack, Icon} from './styles';
+import {ButtonPress, TextButton} from './styles';
 
-const moon = require('../../../resources/day-and-night.png');
-
-function Button(props) {
+function Button({title, onPress}) {
   return (
-    <PressBack onPress={props.onPress}>
-      <Icon source={moon} />
-    </PressBack>
+    <ButtonPress onPress={onPress}>
+      <TextButton>{title}</TextButton>
+    </ButtonPress>
   );
 }
 

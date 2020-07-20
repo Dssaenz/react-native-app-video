@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import featuredReducers from './featuredReducers';
-import moviesReducers from './moviesReducers';
+import upcomingReducers from './upcomingReducers';
 import suggestionsReducers from './suggestionsReducer';
 
 export default combineReducers({
   featuredReducers,
-  moviesReducers,
+  upcomingReducers,
   suggestionsReducers,
 });

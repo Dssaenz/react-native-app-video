@@ -28,11 +28,15 @@ class SuggestionsList extends React.Component {
   renderSeparator = () => <VerticalSeparator />;
 
   renderItem = ({item}) => {
-    const {viewSuggestion} = this.props;
+    const {viewSuggestion, type} = this.props;
     return (
       <MovieCard
         onPress={() => {
-          viewSuggestion(item);
+          if (type === 'EN') {
+            viewSuggestion(item.id, 'en-US');
+          } else if (type === 'ES') {
+            viewSuggestion(item.id, 'es-ES');
+          }
         }}
         {...item}
       />
@@ -40,16 +44,16 @@ class SuggestionsList extends React.Component {
   };
 
   render() {
-    const {listSuggestions} = this.props;
+    const {listSuggestions, type} = this.props;
     return (
-      <SectionListMovies title="Recommended for you">
+      <SectionListMovies
+        title={type === 'EN' ? 'Recommended for you' : 'Recomendados para ti'}>
         <FlatList
           horizontal
           data={listSuggestions}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.renderEmpty}
-          // ItemSeparatorComponent={this.renderSeparator}
           showsHorizontalScrollIndicator={false}
         />
       </SectionListMovies>

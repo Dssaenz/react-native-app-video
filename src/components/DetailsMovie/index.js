@@ -14,7 +14,6 @@ import {
   RuntimeContent,
   TitleStrong,
   LitleText,
-  Language,
   Title,
   Text,
   Icon,
@@ -32,7 +31,7 @@ const makeHTML = (id) => {
   <style>
     .video {
       position: relative;
-      padding-bottom: 56.25%; 
+      padding-bottom: 56.25%;
     }
     iframe {
       top: 0;
@@ -52,55 +51,84 @@ const makeHTML = (id) => {
 };
 
 function DetailsMovie(props) {
+  const poster = props.poster_path;
+  const backPoster = props.backdrop_path;
   return (
     <Container>
       <SafeAreaView>
-        <SectionFond source={{uri: props.background_image}} />
+        <SectionFond
+          source={{uri: `https://image.tmdb.org/t/p/w300/${backPoster}`}}
+        />
       </SafeAreaView>
       <SectionDetails>
         <Wrapper>
           <ContentPoster>
-            <Poster source={{uri: props.medium_cover_image}} />
+            <Poster
+              source={{uri: `https://image.tmdb.org/t/p/w300/${poster}`}}
+            />
           </ContentPoster>
           <WrapperLayout>
             <TitleName>{props.title}</TitleName>
             <WrapperDetails>
               <RuntimeContent>
-                <TitleStrong>Time</TitleStrong>
-                <LitleText>{props.runtime} min</LitleText>
+                <TitleStrong>Duración / Time</TitleStrong>
+                <LitleText>{props.runtime || 0} min</LitleText>
               </RuntimeContent>
-              <Language>
-                <TitleStrong>Language</TitleStrong>
-                <LitleText>{props.language}</LitleText>
-              </Language>
             </WrapperDetails>
           </WrapperLayout>
         </Wrapper>
-        <Title>Synopsis</Title>
-        <Text>{props.synopsis}</Text>
-        <Title>Genders</Title>
-        <Text>{`${props.genres}`}</Text>
+        <Title>Sinopsis / Synopsis</Title>
+        <Text>{props.overview}</Text>
+        <Content>
+          {props.genres && (
+            <SimpleView>
+              <Title>Generos / Genres</Title>
+              {props.genres.map((item) => (
+                <Text>{item.name}</Text>
+              ))}
+            </SimpleView>
+          )}
+        </Content>
         <Content>
           <SimpleView>
-            <Title>Rating</Title>
+            <Title>Puntiación / Rating</Title>
             <Text>
-              {props.rating}{' '}
-              {props.rating > 6.0 ? (
+              {props.vote_average}{' '}
+              {props.vote_average > 6.0 ? (
                 <Icon source={require(tomato)} />
               ) : (
                 <Icon source={require(splash)} />
               )}
             </Text>
           </SimpleView>
+        </Content>
+        <Content>
           <SimpleView>
-            <Title>Year</Title>
-            <Text>{props.year}</Text>
-          </SimpleView>
-          <SimpleView>
-            <Title>Audience</Title>
+            <Title>Audiencia / Audience</Title>
             <Text>{props.mpa_rating || 'R'}</Text>
           </SimpleView>
         </Content>
+        <Content>
+          <SimpleView>
+            <Title>Idioma / Language</Title>
+            <Text>{props.original_language}</Text>
+          </SimpleView>
+        </Content>
+        <Content>
+          {props.production_companies.length !== 0 && (
+            <SimpleView>
+              <Title>Productora / Production</Title>
+              <Text>{props.production_companies[0].name}</Text>
+            </SimpleView>
+          )}
+        </Content>
+        <Content>
+          <SimpleView>
+            <Title>Año / Year</Title>
+            <Text>{props.release_date}</Text>
+          </SimpleView>
+        </Content>
+        <Content />
       </SectionDetails>
       <ViewWeb>
         <WebView
