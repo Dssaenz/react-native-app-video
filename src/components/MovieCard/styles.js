@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const CardContainer = styled.TouchableOpacity`
-  padding-horizontal: 15;
+  padding-horizontal: 15px;
 `;
 
 export const MovieContainer = styled.View`
@@ -10,12 +10,12 @@ export const MovieContainer = styled.View`
 
 export const GenreContent = styled.View`
   position: absolute;
-  left: 15;
+  left: 15px;
   background-color: ${(props) => props.theme.genreColor};
   padding-vertical: ${(props) => props.theme.padding.paddingStandard};
   padding-horizontal: ${(props) => props.theme.padding.paddingXL};
-  border-bottom-right-radius: 10;
-  border-top-left-radius: 5;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 5px;
 `;
 
 export const Genre = styled.Text`
@@ -24,14 +24,14 @@ export const Genre = styled.Text`
 `;
 
 export const MovieImage = styled.Image`
-  width: 125;
-  height: 175;
-  border-radius: 5;
-  margin-bottom: 10;
+  width: 125px;
+  height: 175px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 `;
 
 export const DescriptionContainer = styled.View`
-  width: 125;
+  width: 125px;
 `;
 
 export const Title = styled.Text`
@@ -43,7 +43,7 @@ export const Title = styled.Text`
 export const Year = styled.Text`
   color: ${(props) => props.theme.litleTitleColor};
   font-size: ${(props) => props.theme.text.p};
-  margin-vertical: 10;
+  margin-vertical: 10px;
 `;
 
 export const ViewRating = styled.View`
@@ -52,12 +52,12 @@ export const ViewRating = styled.View`
 
 export const Rating = styled.Text`
   color: ${(props) => props.theme.color.white};
-  font-size: 15;
-  padding-right: 10;
+  font-size: 15px;
+  padding-right: 10px;
 `;
 
 export const Icon = styled.Image`
-  width: 20;
-  height: 20;
+  width: 20px;
+  height: 20px;
   resize-mode: contain;
 `;

@@ -6,19 +6,19 @@ export const Wrapper = styled.View`
 
 export const WrapperVideo = styled.View`
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   z-index: 1;
 `;
 
 export const WrapperLoader = styled.View`
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   justify-content: center;
   align-items: center;
 `;
