@@ -17,7 +17,6 @@ export const Logo = styled.Image`
   border-radius: 30px;
   position: absolute;
   transform: rotate(310deg);
-  elevation: 10;
 `;
 
 export const Title = styled.Text`
@@ -27,8 +26,8 @@ export const Title = styled.Text`
 `;
 
 export const Content = styled.View`
-  top: -60;
-  left: -20;
+  top: -60px;
+  left: -20px;
   width: 170px;
   height: 220px;
   elevation: 10;
@@ -82,7 +81,7 @@ export const Line = styled.View`
   border-left-color: ${(props) => props.theme.color.darkBlue};
   border-right-color: ${(props) => props.theme.color.darkBlue};
   border-top-color: ${(props) => props.theme.color.darkBlue};
-  border-width: 1;
+  border-width: 1px;
 `;
 
 export const TextOr = styled.Text`

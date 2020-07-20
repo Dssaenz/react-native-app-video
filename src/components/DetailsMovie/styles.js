@@ -73,8 +73,8 @@ export const Text = styled.Text`
 `;
 
 export const Icon = styled.Image`
-  width: 20;
-  height: 20;
+  width: 20px;
+  height: 20px;
   resize-mode: stretch;
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Section = styled.TouchableOpacity`
   width: 100%;
-  height: 180;
+  height: 180px;
   background-color: ${(props) => props.theme.color.dark};
 `;
 
@@ -18,13 +18,13 @@ export const Image = styled.ImageBackground`
 export const Text = styled.Text`
   color: ${(props) => props.theme.color.white};
   font-size: ${(props) => props.theme.text.pd};
-  margin-bottom: 3;
+  margin-bottom: 3px;
 `;
 
 export const TextTitle = styled.Text`
   color: ${(props) => props.theme.color.white};
   font-size: ${(props) => props.theme.text.h1};
-  margin-bottom: 3;
+  margin-bottom: 3px;
   font-weight: bold;
 `;
 
@@ -35,5 +35,5 @@ export const ContentDescription = styled.View`
 export const TextDetails = styled.Text`
   color: ${(props) => props.theme.color.white};
   font-size: ${(props) => props.theme.text.pd};
-  margin-bottom: 10;
+  margin-bottom: 10px;
 `;
