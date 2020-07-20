@@ -25,13 +25,13 @@
 
 Login and Register:
 
-<img src="resources/Gifs/Login.gif" width="400"> <img src="resources/Gifs/Register.gif" width="400">
+<img src="resources/Gifs/Login.gif" width="350">  <img src="resources/Gifs/Register.gif" width="350">
 
 Home movies and Dark, light theme:
 
-<img src="resources/Gifs/Home.gif" width="400"> <img src="resources/Gifs/Dark.gif" width="400">
+<img src="resources/Gifs/Home.gif" width="350">  <img src="resources/Gifs/Dark.gif" width="350">
 
 Lenguage and Detail movie
 
-<img src="resources/Gifs/Lenguage.gif" width="400"> <img src="resources/Gifs/Detail.gif" width="400">
+<img src="resources/Gifs/Lenguage.gif" width="350">  <img src="resources/Gifs/Detail.gif" width="350">
 
