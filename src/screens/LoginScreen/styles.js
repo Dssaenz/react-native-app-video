@@ -41,6 +41,7 @@ export const Content = styled.View`
 `;
 
 export const TextContent = styled.View`
+  margin-top: 20px;
   flex-direction: row;
 `;
 
@@ -63,6 +64,7 @@ export const ButtonSection = styled.View`
 
 export const SectionButton = styled.View`
   width: 100%;
+  margin-top: 20px;
   align-items: center;
 `;
 

@@ -1,11 +1,11 @@
 import React, {useState, useContext} from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 import {
   Input,
   Button,
   IndicatorLoading,
   Error,
-  RoundedButton,
+  // RoundedButton,
   ModalContainer,
 } from '../../components';
 import {AuthContext} from '../../navigator/AuthProvider';
@@ -18,20 +18,19 @@ import {
   TextCreate,
   PrincipalLayout,
   Logo,
-  ButtonSection,
+  // ButtonSection,
   SectionButton,
-  Option,
-  Line,
-  TextOr,
+  // Option,
+  // Line,
+  // TextOr,
 } from './styles';
 import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-community/google-signin';
 
 const font = require('../../../resources/blue.jpg');
 const logo = require('../../../resources/logo.png');
-const facebook = require('../../../resources/facebook.png');
-const google = require('../../../resources/google.png');
-const twitter = require('../../../resources/twitter.png');
+// const facebook = require('../../../resources/facebook.png');
+// const google = require('../../../resources/google.png');
+// const twitter = require('../../../resources/twitter.png');
 
 function LoginScreen({navigation}) {
   const {login} = useContext(AuthContext);
@@ -40,10 +39,6 @@ function LoginScreen({navigation}) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  GoogleSignin.configure({
-    webClientId:
-      '811721080519-16iaht8argubt1lj43eu4h8oo8c559i2.apps.googleusercontent.com',
-  });
   const userLogin = async (paramEmail, paramPassword) => {
     setLoading(true);
     try {
@@ -55,12 +50,6 @@ function LoginScreen({navigation}) {
     }
   };
 
-  async function onGoogleButtonPress() {
-    const {idToken} = await GoogleSignin.signIn();
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    return auth().signInWithCredential(googleCredential);
-  }
-
   if (loading) {
     return <IndicatorLoading loading={loading} />;
   }
@@ -71,7 +60,8 @@ function LoginScreen({navigation}) {
           <Logo source={logo} />
         </Content>
         <ModalContainer>
-          <Title>WELCOME!</Title>
+          <Title>WELCOME</Title>
+          <Title>AGAIN!</Title>
           <TextContent>
             <TextAccount>Don´t have an account? </TextAccount>
             <TextCreate onPress={() => navigation.navigate('Register')}>
@@ -96,12 +86,7 @@ function LoginScreen({navigation}) {
               onPress={() => userLogin(email, password)}
             />
           </SectionButton>
-          {/* <Button title={'with google'} onPress={onGoogleButtonPress} />
-      <Button
-        title={'Registrate'}
-
-        /> */}
-          <Option>
+          {/* <Option>
             <Line />
             <TextOr>Or</TextOr>
             <Line />
@@ -110,7 +95,7 @@ function LoginScreen({navigation}) {
             <RoundedButton icon={facebook} />
             <RoundedButton icon={google} />
             <RoundedButton icon={twitter} />
-          </ButtonSection>
+          </ButtonSection> */}
           <Text>{error && <Error error={error} />}</Text>
         </ModalContainer>
       </PrincipalLayout>
